@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>The Town | The Reckoning of Mammoth Lakes, CA</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js" charset="utf-8"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
+	<script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
+	
+  <style type="text/css" media="screen">
+	/*** Put styles here for opening slide ***/
+	/*THINGS THAT ARE LEFT:
+	
+	Figure out why style and script commands on link pages are being overridden, and by what.
+	
+	Get video clips to cue AFTER slide text
+	
+	Get function 'glowSwipeIcon' to remain off-screen for a few seconds.
+	
+	Add in all slides, whether there are effects or not
+	
+	Add touchscreen functionality
+	
+	Adjust mediaelement.js so that when a video is finished, it transitions automatically to the next slide
+	
+	Add in final UI
+	
+	Add in chapter menu selector
+	
+	*/
+		
+		#container{
+			
+			background: #000;
+		}
+		
+		
+		#opening{
+			position:relative;
+			color:#fff5cc;
+			opacity:0;
+		}
+		
+		
+		#opening video{
+			position: absolute;
+			z-index: 1;
+		}
+		
+		#opening h1, h2, h3, p{
+			position: absolute;
+			left: 28%;
+			z-index:10;
+		}
+
+		#opening h1{
+			font-size: 48px;
+			top: 15%;
+			opacity: 0;
+			padding: 1% 0 0 0;
+			
+		}
+		#opening h2{
+			font:300 1.5em/1.5em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;
+			top:30%;
+			opacity: 0;
+			padding: 10% 0 0 0;
+		}
+		
+		#opening h3{
+			font:300 1.5em/1.5em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;
+			top:25%;
+			opacity: 0;
+			padding: 14% 0 0 0;
+			
+		}
+		
+		#opening #play a{
+			font:400 1.5em/1.5em Oswald, Arial, Helvetica, sans-serif;
+			color: #fff5cc;
+			position:absolute;
+			width:100px;
+			text-align:center;
+			left:50%;
+			top:50%;
+			margin-left:-50px;
+			padding: 300px 0 0 160px;
+			opacity: ;
+
+		}
+		
+		
+		#opening p{
+			font-family: Lato;
+			font-weight: 300;
+
+		}
+
+  </style>
+	<script type="text/javascript" charset="utf-8">
+	/*** Put any scripts here for opening slide only ***/
+	
+	jQuery(document).ready(function($){
+		
+		$('a.linkone').on('click', function(){
+			
+			$('#opening').animate({'opacity': '0'}, 3000);
+			
+		})
+			
+		
+		
+		
+			//fadeup text
+			$(".longtext").animate({'opacity': '1'}, 7000);
+			
+			//timed fadeup of text
+			setTimeout(function(){
+				
+				$(".text").animate({'opacity': '1'}, 5000);}, 3000);
+				
+			
+				
+				
+			
+			console.log($('#opening video').height());
+			
+			//fadeout after clicking the link
+			$('#play').on('click', function(){
+				$('#opening').fadeOut(1000);
+				$('#part-one').fadeTo(1000, 1);
+				
+			});
+			
+			
+			$("a").click(function(event){
+				
+				event.preventDefault();
+				linkLocation = this.href;
+				$('#opening').animate({'opacity': '0'}, 1000, redirectPage);
+				
+			});
+			
+			
+			
+			$('video').mediaelementplayer({
+			         'loop':true,
+			         'clickToPlayPause':false,
+			         success:function(player, dom, mediaelement){
+
+			           //As background video, make sure it's position absolutely
+			           mediaelement.container[0].style.position = 'absolute';
+			           mediaelement.container[0].style.zIndex = '1';
+					   
+
+			           //background video should autoplay
+			           player.play();
+			         }
+			 });
+
+			
+			//fadeup opening	
+			$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
+			
+			//make play button glow
+			function glowPlayButton(){
+				$('#play').animate({'opacity':'0.3'}, 500, function(){
+					$('#play').animate({'opacity':'1.0'}, 500, function(){
+						glowPlayButton();
+					})
+				})
+			}
+			
+			
+			
+			
+	});
+	
+
+	</script>
+</head>
+<body>
+	
+	<!-- This is the container, whose contents will be replaced by all of the different sections. -->
+  <div id="container">
+	
+	<div id="opening">
+		<div id="opening-text">
+		<h1 class="longtext"><span>THE TOWN</span></h1>
+		<h2 class="longtext"><span>THE RECKONING OF MAMMOTH LAKES, CALIFORNIA</span></h2>
+		<h3 class="text"><span>By C.K. Hickey<br>and<br>Matt Sarnecki</span></h3>
+		<p id="play"><a href="part-one_main.html" class="linkone">PLAY</a></p>
+		<p>An isolated mountain resort agrees to a development deal that<br> leads to a battle of egos, small town prejudice, lost friendships,<br> ...and financial disaster.</p>
+		<img id="menu" src="images/icons/index_a.png" width="50" height="50" alt="menu button"> 
+		</div>
+		<video width="100%" height="auto" controls="false">
+      
+	      <!-- MP4 Version of the video to play on iOS, Chrome and IE -->
+	      <source src="videos/intro_animation_placeholder.mp4" />
+      
+	      <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+	      <object width="100%" height="auto" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
+	        <param name="movie" value="build/flashmediaelement.swf" />
+	        <param name="flashvars" value="controls=false&file=videos/intro_animation_placeholder.mp4" />
+        
+	        <!-- Image as a last resort -->
+	        <img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />
+	      </object>
+	    </video>
+	 </div><!-- end #opening -->
+  </div><!-- end #container -->
+  
+
+</body>
+</html>
