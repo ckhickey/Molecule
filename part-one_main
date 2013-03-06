@@ -1,0 +1,82 @@
+<!-- No head or body tags, since this page will be loaded into the main index.html -->
+
+<style type="text/css" media="screen">
+  /** Style here for this slide only **/
+	
+	#part-one{
+		position: relative;
+		background: #FFF;
+		opacity: 0;	
+	}
+	
+	
+	#part-one h1, p{
+		position: absolute;
+		color: #FFF;
+	}
+	
+	#part-one h1{
+		top: 50%;
+		left: 30%;
+		font-size: 28px;
+		z-index:10;
+		font-family: Oswald;
+	}
+	
+	video{
+		
+		opacity: 0;
+	}
+
+</style>
+
+<!-- Scripts that pertain to this section should also be here -->
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function($){
+      
+		
+		
+		
+		//MediaElement player code-------------------
+		$('video').css('opacity','0').mediaelementplayer({
+      'loop':true,
+      'clickToPlayPause':false,
+      success:function(player, dom, mediaelement){
+        mediaelement.container[0].style.position = 'absolute';
+        mediaelement.container[0].style.zIndex = '1';
+				
+				$('video').animate({'opacity':'1'}, 9000);
+				
+				//play video automatically
+        player.play();
+      }
+		});
+		
+		
+		$('#part-one').animate({'opacity':'1'}, 2000); 
+		
+		setTimeout(function(){
+			
+			$('video').animate({'opacity': '1'}, 4000);}, 7000);	
+
+  });
+</script>
+
+<!-- This is your slide -->
+<div id="part-one">
+	
+  <video width="100%" height="auto" controls="false" poster="images/001_trans.png">
+    <source src="videos/Video_1_Cut3.mp4" type="video/mp4" />
+    
+    <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+    <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+        <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
+        <param name="flashvars" value="controls=false&file=" />
+        
+        <!-- Image as a last resort -->
+        <img src="" width="100%" height="auto" title="No video playback capabilities" />
+    </object>
+  </video>
+		<h1><a href="part-two_trans.html">(Part I Video Slide)</a></h1>
+	</div>
+</div>
