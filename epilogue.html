@@ -1,0 +1,79 @@
+<!-- No head or body tags, since this page will be loaded into the main index.html -->
+<style type="text/css" media="screen">
+  
+	#epilogue{
+		background-image:url('epilogue.jpg');
+		position: relative;
+		background: #FFF;
+		opacity: 1;
+	}
+	
+	#epilogue h1, p {
+		position: absolute;
+		color: #5d4c18;
+		z-index: 10;
+	}
+	
+	#epilogue h1{
+		font-size: 30px;
+		top: 2%;
+		left: 20%;
+	
+	}
+	
+	#epilogue p {
+		top: 15%;
+		left: 20%;
+		font-family: Lato;
+		font-weight: 300;
+	}
+	
+	#epilogue a{
+		
+		width: 500px;
+		color: #5d4c18;
+		
+	}
+	
+	#swipeicon {
+		position: absolute;
+		top: 90%;
+		left: 45%;
+		opacity: 0;
+	}
+	
+</style>
+<script type="text/javascript" charset="utf-8">
+	
+	jQuery(document).ready(function($){
+		
+		
+		//timed fadeup of text
+		setTimeout(function(){glowSwipeIcon();}, 9000);
+		
+		//make swipe icon glow
+		function glowSwipeIcon(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 500, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 500, function(){
+					glowSwipeIcon();
+				})
+			})
+		}
+		
+	//slide fades in	
+
+	$('#epilogue').animate({'opacity':'1'}, 1000); 
+
+});
+	
+	
+
+</script>
+
+<div id="epilogue">
+	<img src="images/epilogue_a.jpg" width="100%" height="auto" title="No video playback capabilities" />
+	<h1 class="subtext"><span>EPILOGUE</span></h1>
+	<p><a href="index_CK.html">This is the end? Click me to head back to the beginning.</a></p>
+	<a href="index_CK.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+</div>
+</div>
