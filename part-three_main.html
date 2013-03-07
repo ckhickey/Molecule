@@ -1,0 +1,87 @@
+<!-- No head or body tags, since this page will be loaded into the main index.html -->
+<style type="text/css" media="screen">
+  
+	#part-three_main{
+		position: relative;
+		background: #FFF;
+		opacity: 0;
+	}
+	
+	#part-three_main h1, a, p{
+		position: absolute;
+		color: #000;
+		z-index: 10;
+		left: 45%;
+		top: 45%;
+		width: 450px;
+		
+	}
+	
+	#part-three_main h1, a {
+
+		
+		font-size: 36px;
+		font-family: Oswald;
+
+	}
+	
+	#part-three_main p{
+		top: 58% !important;
+		
+		font-family: Lato;
+		font-weight: 300;
+	}
+	
+	#part-three_main #swipeicon {
+		position: absolute;
+		top: 95%;
+		left: 45%;
+		opacity: 1;
+		z-index: 10;
+	}
+	
+</style>
+<script type="text/javascript" charset="utf-8">
+	
+	jQuery(document).ready(function($){
+		
+		//MediaElement player code-------------------
+		$('video').css('opacity','0').mediaelementplayer({
+      'loop':true,
+      'clickToPlayPause':false,
+      success:function(player, dom, mediaelement){
+        mediaelement.container[0].style.position = 'absolute';
+        mediaelement.container[0].style.zIndex = '1';
+				
+				$('video').animate({'opacity':'1'}, 4000);
+				
+				//play video automatically
+        player.play();
+      }
+		});
+		
+	//Slide fades in	
+		
+	$('#part-three_main').animate({'opacity':'1'}, 2000);	
+
+  });
+</script>
+
+<div id="part-three_main">
+	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
+	   <source src="videos/part_4_intro.mp4" type="video/mp4" />
+
+	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+	   <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+	       <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
+	       <param name="flashvars" value="controls=false&file=" />
+
+	       <!-- Image as a last resort -->
+	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
+	   </object>
+	 </video>
+		<h1><a href="part-three_text1.html">Part III: THE LAWSUIT</a></h1>
+		<p class="text"><span>The trail from both perspectives, from 2006 to 2012.<br>Terry Ballas prevails, and is awarded over 30 million in damages.<br>The Town says it cannot pay.</span></p>
+		<a href="part-three_text1.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	</div>
+</div>
