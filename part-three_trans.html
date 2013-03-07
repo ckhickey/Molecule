@@ -1,0 +1,68 @@
+<!-- No head or body tags, since this page will be loaded into the main index.html -->
+<style type="text/css" media="screen">
+  
+	#part-three_trans{
+		background-image:url('images/003_trans.png');
+		position: relative;
+		background: #FFF;
+		opacity: 0;
+	}
+	
+	#part-three_trans h1, p{
+		position: absolute;
+		color: #fff;
+		
+	}
+	
+	#part-three_trans h1{
+		top: 46%;
+		left: 45%;
+		font-size: 36px;
+		z-index:10;
+		
+	}
+	
+	#part-three_trans p{
+		top: 58%;
+		left: 45%;
+		font-family: Lato;
+		font-weight: 300;
+		z-index: 10;
+	}
+	
+	#swipeicon {
+		position: absolute;
+		top: 90%;
+		left: 45%;
+		opacity: 0;
+	}
+	
+</style>
+<script type="text/javascript" charset="utf-8">
+	
+	jQuery(document).ready(function($){
+		
+		$('#part-three_trans').animate({'opacity':'1'}, 1000, function(){glowSwipeIcon();});
+		
+		//make swipe icon glow
+		function glowSwipeIcon(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 800, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 800, function(){
+					glowSwipeIcon();
+				})
+			})
+		}
+
+});
+	
+	
+
+</script>
+
+<div id="part-three_trans">
+	<img src="images/003_trans.png" width="100%" height="auto" title="No video playback capabilities" />
+	<h1 class="text"><span>This is the transitional slide to Part III.</span></h1>
+	<p class="subtext"><span>If there's anything left to say about Part II, it goes here. <br><br>And then we lead dramatically towards Part II with the next swipe.</span></p>
+	<a href="part-three_main.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+</div>
+</div>
