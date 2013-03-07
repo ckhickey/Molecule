@@ -1,0 +1,70 @@
+<!-- No head or body tags, since this page will be loaded into the main index.html -->
+<style type="text/css" media="screen">
+  
+	#part-three_text1{
+		background-image:url('images/part3text1.jpg');
+		position: relative;
+		background: #FFF;
+		opacity: 0;
+	}
+	
+	#part-three_text1 h1, p{
+		position: absolute;
+		color: #000;
+		z-index: 10;
+	}
+	
+	#part-three_text1 h1{
+		font-size: 30px;
+		top: 5%;
+		left: 7%;
+	
+	}
+	
+	#part-three_text1 p{
+		top: 18%;
+		left: 7%;
+		font-family: Lato;
+		font-weight: 300;
+	}
+	
+	#swipeicon {
+		position: absolute;
+		top: 90%;
+		left: 45%;
+		opacity: 0;
+	}
+	
+</style>
+<script type="text/javascript" charset="utf-8">
+	
+	jQuery(document).ready(function($){
+		
+		
+		//timed fadeup of text
+		setTimeout(function(){glowSwipeIcon();}, 9000);
+		
+		//make swipe icon glow
+		function glowSwipeIcon(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 500, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 500, function(){
+					glowSwipeIcon();
+				})
+			})
+		}
+
+	$('#part-three_text1').animate({'opacity':'1'}, 1000); 
+
+});
+	
+	
+
+</script>
+
+<div id="part-three_text1">
+	<img src="images/part3text1.jpg" width="100%" height="auto" title="No video playback capabilities" />
+	<h1 class="text"><span>Things Got All Fucked Up</span></h1>
+	<p class="subtext"><span>Text that sets up the trial. Picture will be like this,<br>or something similar.<br><br>This text will help set up the video.</span></p>	
+	<a href="part-three_video.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+</div>
+</div>
