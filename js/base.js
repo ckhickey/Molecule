@@ -11,7 +11,7 @@ function bindLinksToLoadNewSections(){
       jQuery.ajax({url:href,dataType:'html'}).done(
         function(data){
           jQuery('#container').html(data);
-          centerVideos();
+          //centerVideos();
           bindLinksToLoadNewSections();
         });
     }
@@ -31,7 +31,7 @@ function centerVideos(){
 	//now that we have the sizes, make it responsive
 	$('video, video object, video img').attr('width', '100%').attr('height', 'auto');
 	
-	//console.log("Window height: " + $(window).height() + ", Window width: " + $(window).width() + ", videowidth: " + videowidth + ", videoheight: " + videoheight);
+	console.log("Window height: " + $(window).height() + ", Window width: " + $(window).width() + ", videowidth: " + videowidth + ", videoheight: " + videoheight);
 	//vertically center the container
 	if($(window).width() * videoheight/videowidth > $(window).height){
 		$('#container').css({'width':Math.floor($(window).height() * videowidth/videoheight), 'height':$(window).height, 'left':($(window).width() - videowidth)/2});
