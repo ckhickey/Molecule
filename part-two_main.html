@@ -2,39 +2,44 @@
 <style type="text/css" media="screen">
   
 	#part-two_main{
-		position: relative;
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
+	}
+	
+	
+	#part-two_main #opening-text{
+		position: absolute;
+		color: #000;
+		z-index: 100;
+		width: 400px;
+		left: 55%;
+		margin-left: -200px;
+		margin-top: 41%;
+		
 	}
 	
 	#part-two_main h1, a, p{
-		position: absolute;
 		color: #000;
-		z-index: 10;
-		left: 45%;
-		width: 450px;
-		
 	}
 	
 	#part-two_main h1, a {
 
-		top: 45%;
 		font-size: 36px;
 		font-family: Oswald;
 
 	}
 	
 	#part-two_main p{
-		top: 58% !important;
 		
 		font-family: Lato;
 		font-weight: 300;
+		
 	}
 	
 	#part-two_main #swipeicon {
 		position: absolute;
-		top: 95%;
-		left: 45%;
+		margin-top: 75%;
+		left: 20%;
 		opacity: 1;
 		z-index: 10;
 	}
@@ -67,6 +72,11 @@
 </script>
 
 <div id="part-two_main">
+	<div id="opening-text">
+		<h1><a href="part-two_text1.html">Part II: UP HOT CREEK</a></h1>
+		<p class="text"><span>Terry Ballas would make improvements to and run the airport.<br>According to the town, the FAA approved this development.<br>But things didn't go so well after that.</span></p>
+		<a href="part-two_text1.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
 	   <source src="videos/part_2_intro.mp4" type="video/mp4" />
 
@@ -79,8 +89,4 @@
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
-		<h1><a href="part-two_text1.html">Part II: UP HOT CREEK</a></h1>
-		<p class="text"><span>Terry Ballas would make improvements to and run the airport.<br>According to the town, the FAA approved this development.<br>But things didn't go so well after that.</span></p>
-		<a href="part-two_text1.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
-	</div>
 </div>

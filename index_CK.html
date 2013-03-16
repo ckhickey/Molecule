@@ -21,26 +21,44 @@
 	
 	DONE----Figure out why style and script commands on link pages are being overridden, and by what.
 	
-	Get video clips to cue AFTER slide text
+	MORE OR LESS DONE----Get video clips to cue AFTER slide text
+	
+	DONE----Add in chapter menu selector
+	-Replace menu image with blank box save for title and vertical line - code in the rest of the text.
+	-Add links to menu items.
 	
 	Get function 'glowSwipeIcon' to remain off-screen for a few seconds.
 	
 	Add in all slides, whether there are effects or not
 	
-	Add touchscreen functionality - swipe down or swipe left for transitions to mimic "scrolling" effect
+	Add touchscreen functionality - swipe effects for transitions
+	-Add effect for "Main" video pages: Two-finger reverse swipe to clear away "fog" div from the video.
 	
 	Adjust mediaelement.js so that when a video is finished, it transitions automatically to the next slide
 	
 	Add in final UI 
 	
-	Add in chapter menu selector
+	Music - add bass string to left hand on intro theme
 	
+	Add SoundManager 2 plugin for music tracks. Make sure UI is invisible except for a "sound off" icon
+	
+	Clean up CSS for text on all slides (may need final footage before this can be done).
+	
+	REDIRECT PAGE FUNCTIONS:
+	
+	1. Slow fadeOut (Opening to Part 1 Main).
+	
+	2. One second fadeOut to fadeIn.
+	
+	3. Swipe to remove semi-transparent div from slide (Part 2-4 Main).
+	
+	4. 
+
 	*/
 		
 	#container{
 		background: #000;
 	}
-	
 	
 	#opening{ 
 		color:#fff5cc;
@@ -55,15 +73,13 @@
 		margin-left:-200px;
 		margin-top:20%;
 	}
-	
-	
+
 	#opening video{
 		position: absolute;
 		top: 0;
 		z-index: 1;
 		border:1px solid white;
 	}
-
 
 	#opening h1{
 		font-size: 48px;
@@ -92,10 +108,22 @@
 		padding:40px 0;
 	}
 	
-	#opening img{
+	#menu{
 		position:absolute;
 		z-index:200;
+		cursor: pointer;
 	}
+	
+	#top{
+		position: absolute;
+		top: 6%;
+		z-index: 190;
+		display: none;
+		font-family: Lato;
+		font-weight: 300;
+		color: #FFF;
+	}
+	
 	
 	#opening #description{
 		font:normal 1.1em/1.8em Lato, Helvetica, Arial, sans-serif;
@@ -103,18 +131,12 @@
 		opacity:0;
 	}
 	
-	
   </style>
+
 	<script type="text/javascript" charset="utf-8">
 	/*** Put any scripts here for opening slide only ***/
 	
 	jQuery(document).ready(function($){
-		
-		$('a.linkone').on('click', function(){
-			
-			$('#opening').animate({'opacity': '0'}, 3000);
-			
-		})
 		
 		/*
 		
@@ -124,75 +146,76 @@
 		#description is opening description
 		
 		*/
+		
 		$(".longtext, .text").animate({'opacity': '1'}, 4000);
 		
 		setTimeout(function(){
 			$('#description').animate({'opacity':'1'}, 4000);
 		}, 1500);
 		
+					
+		//fadeout after clicking the link
+			
+		$("a.linkone").click(function(event){
+				
+			event.preventDefault();
+			linkLocation = this.href;
+			$('#opening').animate({'opacity': '0'}, 5000, redirectPage);
+			
+		});
+			
+		function redirectPage(){
+			window.location = linkLocation;
+			
+		}
+			
+		/* BRING UP CHAPTER MENU */
 		
-				
-						
-			//fadeout after clicking the link
-			$('#play').on('click', function(){
-				$('#opening').fadeOut(1000);
-				$('#part-one').fadeTo(1000, 1);
-			});
+		$('#menu').click(function(){
 			
-			
-			$("a").click(function(event){
-				
-				event.preventDefault();
-				linkLocation = this.href;
-				$('#opening').animate({'opacity': '0'}, 7000, redirectPage);
-				
-			});
-			
-			function redirectPage(){
-				
-			}
-			
-			
-			
-			$('video').mediaelementplayer({
-	         'loop':true,
-	         'clickToPlayPause':false,
-	         success:function(player, dom, mediaelement){
+			$('#top').slideToggle(1000);
 
-	           //As background video, make sure it's position absolutely
-	           mediaelement.container[0].style.position = 'absolute';
-	           mediaelement.container[0].style.zIndex = '1';
+		});
+		
+		//VIDEO
+			
+		$('video').mediaelementplayer({
+         'loop':true,
+         'clickToPlayPause':false,
+         success:function(player, dom, mediaelement){
+
+           //As background video, make sure it's position absolutely
+           mediaelement.container[0].style.position = 'absolute';
+           mediaelement.container[0].style.zIndex = '1';
 			   
-			   //$("#container").css('top', ($(window).height() - ($(window).width()*.75))/2 );
+			//$("#container").css('top', ($(window).height() - ($(window).width()*.75))/2 );
 
-	           //background video should autoplay
-	           player.play();
-	         }
-			 });
-
-			
-			//fadeup opening	
-			$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
-			
-			//make play button glow
-			function glowPlayButton(){
-				$('#play').animate({'opacity':'0.3'}, 1000, function(){
-					$('#play').animate({'opacity':'1.0'}, 1000, function(){
-						glowPlayButton();
-					})
+           //background video should autoplay
+           player.play();
+         }
+		 });
+	
+		//fadeup opening	
+		$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
+		
+		//make play button glow
+		function glowPlayButton(){
+			$('#play').animate({'opacity':'0.3'}, 1000, function(){
+				$('#play').animate({'opacity':'1.0'}, 1000, function(){
+					glowPlayButton();
 				})
-			}
-			
-			
-			
-			
+			})
+		}			
 	});
 	
-
 	</script>
 </head>
 <body>
 	<img id="menu" src="icon/index_a.png" width="50" height="50" alt="menu button">
+	
+	<img id="top" src="icon/menuB.png" width="100%" height="auto" alt="Rectangle Top" />
+		
+
   <!-- This is the container, whose contents will be replaced by all of the different sections. -->
   <div id="container">
 	
@@ -201,9 +224,10 @@
 			<h1 class="longtext"><span>THE TOWN</span></h1>
 			<h2 class="longtext"><span>THE RECKONING OF MAMMOTH LAKES, CALIFORNIA</span></h2>
 			<h3 class="text"><span>By C.K. Hickey and Matt Sarnecki</span></h3>
-			<p id="description">An isolated mountain resort agrees to a development deal that<br> leads to a battle of egos, small town prejudice, lost friendships,<br> ...and financial disaster.</p>
+			<p id="description">An isolated mountain resort agrees to a development deal that<br> leads to a battle of egos, small town prejudice, lost friendships,<br> and financial disaster.</p>
 			<p id="play"><a href="part-one_main.html" class="linkone">PLAY</a></p>
 		</div>
+		
 		<video width="640" height="480" controls="false">
 			<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
 			<source src="videos/intro_animation_placeholder.mp4" />
@@ -217,6 +241,7 @@
 				<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />
 			</object>
 		</video>
+		
 		<embed height="10" width="10" src="music/theme1two.aif">
 	 </div><!-- end #opening -->
   </div><!-- end #container -->
