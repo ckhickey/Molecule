@@ -3,31 +3,35 @@
   
 	#part-two_trans{
 		background-image:url('images/002_trans.png');
-		position: relative;
 		background: #FFF;
 		opacity: 0;
 	}
 	
-	#part-two_trans h1, p{
+	#twotrans-text{
 		position: absolute;
+		z-index: 100;
+		width: 400px;
+		left: 45%;
+		margin-left: ;
+		margin-top: 50%;
+		
+	}
+	
+	#part-two_trans h1, p{
 		color: #fff;
 		
 	}
 	
 	#part-two_trans h1{
-		top: 46%;
-		left: 45%;
-		font-size: 36px;
-		z-index:10;
-		font-family: Oswald;
+		font:400 1.6em/1.9em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;
+		padding: 1px 0 0 0;
+
 	}
 	
 	#part-two_trans p{
-		top: 59%;
-		left: 45%;
 		font-family: Lato;
 		font-weight: 300;
-		z-index: 10;
+		padding: 10px 0;
 	}
 	
 	#swipeicon {
@@ -42,7 +46,7 @@
 	
 	jQuery(document).ready(function($){
 		
-		$('#part-two_trans').animate({'opacity':'1'}, 1000, function(){glowSwipeIcon();});
+		$('#part-two_trans').animate({'opacity':'1'}, 2000, function(){glowSwipeIcon();});
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
@@ -53,9 +57,9 @@
 			})
 		}
 		
-		//fadeout after clicking the link
+		//fadeout after clicking the link - temporary until translucent transition is encoded
 		$('#swipeicon').on('click', function(){
-			$('#part-two_trans').fadeOut(1000);
+			$('#part-two_trans').fadeOut(2000);
 			
 		});
 
@@ -66,9 +70,10 @@
 </script>
 
 <div id="part-two_trans">
+	<div id="twotrans-text">
+		<h1 class="text"><span>By the 1990s, Mammoth thought big, grew big.</span></h1>
+		<p class="subtext"><span>But in order to become a world-class destination, the Town needed to open up to out-of-staters. <br><br>And that meant expanding the airport.</span></p>
+	</div>	
 	<img src="images/002_trans.png" width="100%" height="auto" title="No video playback capabilities" />
-	<h1 class="text"><span>This is the transitional slide to Part II.</span></h1>
-	<p class="subtext"><span>If there's anything left to say about Part I, it goes here. <br><br>And then we lead dramatically towards Part II with the next swipe.</span></p>
 	<a href="part-two_main.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
-</div>
 </div>

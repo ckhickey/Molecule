@@ -2,28 +2,29 @@
 <style type="text/css" media="screen">
   
 	#part-two_text1{
-		background-image:url('images/part2text1.jpg');
-		position: relative;
+		background-image:url('images/part2text1b.png');
 		background: #FFF;
 		opacity: 0;
 	}
 	
-	#part-two_text1 h1, p{
+	#twotext1-text{
 		position: absolute;
-		color: #000;
-		z-index: 10;
+		z-index: 100;
+		width: 400px;
+		left: 20%;
+		margin-left: ;
+		margin-top: 12%;
+	}
+	
+	#part-two_text1 h1, p{
+		color: #FFF;
 	}
 	
 	#part-two_text1 h1{
-		font-size: 30px;
-		top: 14%;
-		left: 20%;
-	
+		font:400 1.6em/1.9em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;	
 	}
 	
 	#part-two_text1 p{
-		top: 25%;
-		left: 20%;
 		font-family: Lato;
 		font-weight: 300;
 	}
@@ -42,28 +43,35 @@
 		
 		
 		//timed fadeup of text
-		setTimeout(function(){glowSwipeIcon();}, 9000);
+		setTimeout(function(){glowSwipeIcon();}, 5000);
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
-			$('#swipeicon').animate({'opacity':'0.3'}, 500, function(){
-				$('#swipeicon').animate({'opacity':'1.0'}, 500, function(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 1000, function(){
 					glowSwipeIcon();
 				})
 			})
 		}
 
-	$('#part-two_text1').animate({'opacity':'1'}, 1000); 
+	//fade the slide in	
+	$('#part-two_text1').animate({'opacity':'1'}, 2000); 
+	
+	//fadeout after clicking the link
+	$('#swipeicon').on('click', function(){
+		$('#part-two_trans').fadeOut(1000);
+		
+	});
 
 });
 	
-	
-
 </script>
 
 <div id="part-two_text1">
-	<img src="images/part2text1.jpg" width="100%" height="auto" title="No video playback capabilities" />
-	<h1 class="text"><span>Anatomy of a Plan</span></h1>
-	<p class="subtext"><span>Starting to explain the development deal. Picture will be like this,<br>or the development agreement, illustrated images, etc.<br><br>This text will help set up the video.</span></p>
+	<div id="twotext1-text">
+		<h1 class="text"><span>Anatomy of a Plan</span></h1>
+		<p class="subtext"><span>Starting to explain the development deal. Picture will be like this,<br>or the development agreement, illustrated images, etc.<br><br>This text will help set up the video.</span></p>
+	</div>	
+	<img src="images/part2text1b.png" width="100%" height="auto" title="No video playback capabilities" />
 	<a href="part-two_video.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

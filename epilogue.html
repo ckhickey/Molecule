@@ -2,37 +2,35 @@
 <style type="text/css" media="screen">
   
 	#epilogue{
-		background-image:url('epilogue.jpg');
-		position: relative;
+		background-image:url('epilogue_a1.png');
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
+	}
+	
+	#epilogue-text{
+		position: absolute;
+		z-index: 100;
+		width: 400px;
+		left: 20%;
+		margin-left: ;
+		margin-top: 2%;
 	}
 	
 	#epilogue h1, p {
-		position: absolute;
-		color: #5d4c18;
-		z-index: 10;
+		color: #000;
 	}
 	
 	#epilogue h1{
-		font-size: 30px;
-		top: 2%;
-		left: 20%;
-	
+		font:400 1.6em/1.9em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;	
 	}
 	
 	#epilogue p {
-		top: 15%;
-		left: 20%;
 		font-family: Lato;
 		font-weight: 300;
 	}
 	
 	#epilogue a{
-		
-		width: 500px;
 		color: #5d4c18;
-		
 	}
 	
 	#swipeicon {
@@ -49,7 +47,7 @@
 		
 		
 		//timed fadeup of text
-		setTimeout(function(){glowSwipeIcon();}, 9000);
+		setTimeout(function(){glowSwipeIcon();}, 5000);
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
@@ -62,16 +60,17 @@
 		
 	//slide fades in	
 
-	$('#epilogue').animate({'opacity':'1'}, 1000); 
+	$('#epilogue').animate({'opacity':'1'}, 2000); 
 
 });
 	
 </script>
 
 <div id="epilogue">
-	<img src="images/epilogue_a.jpg" width="100%" height="auto" title="No video playback capabilities" />
-	<h1 class="subtext"><span>EPILOGUE</span></h1>
-	<p><a href="index_CK.html">This is the end? Click me to head back to the beginning.</a></p>
+	<div id="epilogue-text">
+		<h1 class="subtext"><span>EPILOGUE</span></h1>
+		<p>This is the end? Stuff to sum it all up, and then we proceed to the credits.</p>
+	</div>	
+	<img src="images/epilogue_a1.png" width="100%" height="auto" title="No video playback capabilities" />
 	<a href="index_CK.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
-</div>
 </div>
