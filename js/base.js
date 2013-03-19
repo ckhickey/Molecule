@@ -6,17 +6,35 @@ var videoheight, videowidth;
 function bindLinksToLoadNewSections(){
   jQuery('a').on('click', function(e){
     var href = $(this).attr('href') || null;
+    var fade = $(this).data('transition') || null;
     if(href.substr(0, 4) != 'http' && href != null){//make sure this isn't an external link
       e.preventDefault();
-      jQuery.ajax({url:href,dataType:'html'}).done(
-        function(data){
-          jQuery('#container').html(data);
-          centerVideos();
-          bindLinksToLoadNewSections();
+      if(fade !== null && ("fadeout" == fade.toLowerCase() || "fadeinout" == fade.toLowerCase())){
+        jQuery('#container').animate({'opacity': 0}, 500, function(){
+          goToNextSection(href, fade);
         });
+      } else {
+        goToNextSection(href, fade);
+      }
     }
     return false;
   });
+}
+
+function goToNextSection(href, fade){
+  jQuery.ajax({url:href,dataType:'html'}).done(
+    function(data){
+      jQuery('#container').html(data);
+      if(fade !== null && ("fadein" == fade.toLowerCase() || "fadeinout" == fade.toLowerCase())){
+        jQuery('#container').animate({'opacity': 1}, 1700, function(){
+          bindLinksToLoadNewSections();
+        });
+      } else {
+        jQuery('#container').css({'opacity': 1});
+        bindLinksToLoadNewSections();
+      }
+      centerVideos();
+    });
 }
 
 function centerVideos(){
@@ -46,6 +64,18 @@ function centerVideos(){
 			$('#container').css({'width':'100%', 'height': Math.floor($(window).width() * videoheight/videowidth), 'top':($(window).height() - Math.floor($(window).width() * videoheight/videowidth))/2});
 		}
 	})
+}
+
+/**
+  * Fade transitions. Use the data-transition attribute on the a tags.
+  *
+  * fadeInOut = Fade current slide out, and next slide in.
+  * fadeIn = Fade next slide in, but current slide disappears immediately
+  * fadeOut = Current slide fades out, next slide cuts in immediately.
+  * none (or no attribute/blank) = straight cuts. 
+  */
+function fadeTransition(type){
+  
 }
 
 

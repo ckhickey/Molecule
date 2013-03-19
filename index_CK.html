@@ -12,7 +12,7 @@
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=2" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=12" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
@@ -114,15 +114,7 @@
 	
 	jQuery(document).ready(function($){
 		
-		$('a.linkone').on('click', function(){
-			
-			$('#opening').animate({'opacity': '0'}, 3000);
-			
-		})
-			
-		
-		
-		
+
 			//fadeup text
 			$(".longtext").animate({'opacity': '1'}, 7000);
 			
@@ -162,7 +154,6 @@
 	           mediaelement.container[0].style.position = 'absolute';
 	           mediaelement.container[0].style.zIndex = '1';
 			   
-			   //$("#container").css('top', ($(window).height() - ($(window).width()*.75))/2 );
 
 	           //background video should autoplay
 	           player.play();
@@ -200,7 +191,7 @@
 			<h1 class="longtext"><span>THE TOWN</span></h1>
 			<h2 class="longtext"><span>THE RECKONING OF MAMMOTH LAKES, CALIFORNIA</span></h2>
 			<h3 class="text"><span>By C.K. Hickey<br>and<br>Matt Sarnecki</span></h3>
-			<p id="play"><a href="part-one_main.html" class="linkone">PLAY</a></p>
+			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut">PLAY</a></p>
 			<p>An isolated mountain resort agrees to a development deal that<br> leads to a battle of egos, small town prejudice, lost friendships,<br> ...and financial disaster.</p>
 			<img id="menu" src="images/icons/index_a.png" width="50" height="50" alt="menu button"> 
 		</div>

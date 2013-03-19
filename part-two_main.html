@@ -4,7 +4,7 @@
 	#part-two_main{
 		position: relative;
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#part-two_main h1, a, p{
@@ -46,22 +46,22 @@
 	jQuery(document).ready(function($){
 		
 		//MediaElement player code-------------------
-		$('video').css('opacity','0').mediaelementplayer({
-      'loop':true,
-      'clickToPlayPause':false,
-      success:function(player, dom, mediaelement){
-        mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';
+		$('video').mediaelementplayer({
+      		'loop':true,
+      		'clickToPlayPause':false,
+      		success:function(player, dom, mediaelement){
+		        mediaelement.container[0].style.position = 'absolute';
+		        mediaelement.container[0].style.zIndex = '1';
 				
-				$('video').animate({'opacity':'1'}, 4000);
+				//$('video').animate({'opacity':'1'}, 4000);
 				
 				//play video automatically
-        player.play();
-      }
+		        player.play();
+		      }
 		});
 	
 	//Slide fades in	
-	$('#part-two_main').animate({'opacity':'1'}, 2000); 	
+	//$('#part-two_main').animate({'opacity':'1'}, 2000); 	
 
   });
 </script>
@@ -81,6 +81,6 @@
 	 </video>
 		<h1><a href="part-two_text1.html">Part II: UP HOT CREEK</a></h1>
 		<p class="text"><span>Terry Ballas would make improvements to and run the airport.<br>According to the town, the FAA approved this development.<br>But things didn't go so well after that.</span></p>
-		<a href="part-two_text1.html"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+		<a href="part-two_text1.html" data-transition="fadeInOut"><img id="swipeicon" src="images/icons/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 	</div>
 </div>
