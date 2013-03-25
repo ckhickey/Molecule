@@ -4,7 +4,7 @@
 	#part-three_text1{
 		background-image:url('images/part3text1b.png');
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#threetext1-text{
@@ -54,7 +54,7 @@
 			})
 		}
 
-	$('#part-three_text1').animate({'opacity':'1'}, 2000); 
+	//$('#part-three_text1').animate({'opacity':'1'}, 2000); 
 
 });
 
@@ -66,5 +66,5 @@
 		<p class="subtext"><span>Text that sets up the trial. Picture will be like this,<br>or something similar.<br><br>This text will help set up the video.</span></p>
 	</div>	
 	<img src="images/part3text1b.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-three_video.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-three_video.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

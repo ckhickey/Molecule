@@ -3,7 +3,7 @@
   
 	#part-four_main{
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#fourmain-text{
@@ -32,11 +32,10 @@
 	
 	#part-four_main #swipeicon {
 		position: absolute;
-		margin-top: 70%;
-		left: 20%;
-		margin-left: 100px;
+		margin-top: 90%;
+		margin-left: 45%;
 		opacity: 1;
-		z-index: 10;
+		z-index: 100;
 	}
 	
 </style>
@@ -44,24 +43,26 @@
 	
 	jQuery(document).ready(function($){
 		
+		centerVideos();
+		
 		//MediaElement player code-------------------
-		$('video').css('opacity','0').mediaelementplayer({
+		$('video').mediaelementplayer({
       'loop':true,
       'clickToPlayPause':false,
       success:function(player, dom, mediaelement){
         mediaelement.container[0].style.position = 'absolute';
         mediaelement.container[0].style.zIndex = '1';
 				
-				$('video').animate({'opacity':'1'}, 4000);
+				//$('video').animate({'opacity':'1'}, 4000);
 				
 				//play video automatically
-        player.play();
-      }
+      		    player.play();
+		      }
 		});
 		
 	//Slide fades in	
 		
-	$('#part-four_main').animate({'opacity':'1'}, 2000);
+	//$('#part-four_main').animate({'opacity':'1'}, 2000);
 
   });
 </script>
@@ -70,10 +71,9 @@
 	<div id="fourmain-text">
 		<h1><a href="part-four_video.html">Part IV: THE RECKONING</a></h1>
 		<p class="text"><span>The decimation of the police department and the emotional polarization of the Town.<br><br>Renewal and regeneration by marketing and growth. Cataclysm and rebirth.</span></p>
-		<a href="part-four_video.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
-	   <source src="videos/part_4_intro.mp4" type="video/mp4" />
+	   <source src="videos/part_4_Animation.mp4" type="video/mp4" />
 
 	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 	   <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
@@ -84,4 +84,5 @@
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
+	<a href="part-four_video.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 	</div>

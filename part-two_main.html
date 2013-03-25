@@ -6,16 +6,13 @@
 		opacity: 1;
 	}
 	
-	
 	#part-two_main #opening-text{
 		position: absolute;
 		color: #000;
 		z-index: 100;
 		width: 400px;
-		left: 55%;
-		margin-left: -200px;
-		margin-top: 41%;
-		
+		margin-left: -40%;
+		margin-top: 21%;
 	}
 	
 	#part-two_main h1, a, p{
@@ -23,50 +20,47 @@
 	}
 	
 	#part-two_main h1, a {
-
 		font-size: 36px;
 		font-family: Oswald;
-
 	}
 	
 	#part-two_main p{
-		
 		font-family: Lato;
 		font-weight: 300;
-		
 	}
 	
 	#part-two_main #swipeicon {
 		position: absolute;
-		margin-top: 75%;
-		left: 20%;
+		margin-top: 90%;
+		margin-left: 45%;
 		opacity: 1;
-		z-index: 10;
+		z-index: 100;
 	}
 	
-
 </style>
 <script type="text/javascript" charset="utf-8">
 	
 	jQuery(document).ready(function($){
 		
+		centerVideos();
+		
 		//MediaElement player code-------------------
-		$('video').css('opacity','0').mediaelementplayer({
+		$('video').mediaelementplayer({
       'loop':true,
       'clickToPlayPause':false,
       success:function(player, dom, mediaelement){
         mediaelement.container[0].style.position = 'absolute';
         mediaelement.container[0].style.zIndex = '1';
 				
-				$('video').animate({'opacity':'1'}, 4000);
+				//$('video').animate({'opacity':'1'}, 4000);
 				
 				//play video automatically
-        player.play();
-      }
+      		    player.play();
+		      }
 		});
 	
 	//Slide fades in	
-	$('#part-two_main').animate({'opacity':'1'}, 2000); 	
+	//$('#part-two_main').animate({'opacity':'1'}, 2000); 	
 
   });
 </script>
@@ -75,18 +69,19 @@
 	<div id="opening-text">
 		<h1><a href="part-two_text1.html">Part II: UP HOT CREEK</a></h1>
 		<p class="text"><span>Terry Ballas would make improvements to and run the airport.<br>According to the town, the FAA approved this development.<br>But things didn't go so well after that.</span></p>
-		<a href="part-two_text1.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+		
 	</div>	
-	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
-	   <source src="videos/part_2_intro.mp4" type="video/mp4" />
+	<video width="1920" height="1080" controls="false" poster="images/001_trans.png">
+	   <source src="videos/part_2_animation.mov" type="video/mp4" />
 
 	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-	   <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+	   <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
 	       <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-	       <param name="flashvars" value="controls=false&file=" />
+	       <param name="flashvars" value="controls=false&file=videos/Part_2_Animation.mp4" />
 
 	       <!-- Image as a last resort -->
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
+	<a href="part-two_text1.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

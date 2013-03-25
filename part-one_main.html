@@ -37,8 +37,6 @@
       success:function(player, dom, mediaelement){
         mediaelement.container[0].style.position = 'absolute';
         mediaelement.container[0].style.zIndex = '1';			
-		$("#video-container").animate({'opacity': '1'}, 5000);
-		
 
 		//play video automatically
         player.play();
@@ -55,11 +53,10 @@
 <!-- This is your slide -->
 <div id="part-one">
 	<div id="part-one-text">
-		<h1><a href="part-two_trans.html">(next)</a></h1>
-		
+		<h1><a href="part-two_trans.html" data-transition="fadeInOut">(next)</a></h1>
 	</div>
 	<video width="1920" height="1080" controls="false" poster="images/001_trans.png">
-	  <source src="videos/Video_1_Cut3.mp4" type="video/mp4" />
+	  <source src="videos/CK_Presentation_Video_1.mp4" type="video/mp4" />
   
 	  <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 	  <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">

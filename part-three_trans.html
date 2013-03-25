@@ -4,7 +4,7 @@
 	#part-three_trans{
 		background-image:url('images/003_trans.png');
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#threetrans-text{
@@ -43,7 +43,9 @@
 	
 	jQuery(document).ready(function($){
 		
-		$('#part-three_trans').animate({'opacity':'1'}, 1000, function(){glowSwipeIcon();});
+		//$('#part-three_trans').animate({'opacity':'1'}, 1000, function(){glowSwipeIcon();});
+		
+		glowSwipeIcon();
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
@@ -64,5 +66,5 @@
 		<p class="subtext"><span>If there's anything left to say about Part II, it goes here. <br><br>And then we lead dramatically towards Part III with the next swipe.</span></p>
 	</div>	
 	<img src="images/003_trans.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-three_main.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-three_main.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

@@ -6,53 +6,54 @@
   <title>The Town | The Reckoning of Mammoth Lakes, CA</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <link rel="stylesheet" href="css/main.css?" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
   <script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js" charset="utf-8"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=4" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=19" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
 	/*** Put styles here for opening slide ***/
 	/*THINGS THAT ARE LEFT:
 	
-	DONE----Figure out why style and script commands on link pages are being overridden, and by what.
+	--MORE OR LESS DONE----Get video clips to cue AFTER slide text
 	
-	MORE OR LESS DONE----Get video clips to cue AFTER slide text
-	
-	DONE----Add in chapter menu selector
-	-Replace menu image with blank box save for title and vertical line - code in the rest of the text.
+	--DONE----Add in chapter menu selector
+	-Replace menu image with blank box save for title and vertical line - code in the rest of the text?
 	-Add links to menu items.
+	-Implement SVG version of image.
 	
-	Get function 'glowSwipeIcon' to remain off-screen for a few seconds.
+	--Get function 'glowSwipeIcon' to remain off-screen for a few seconds.
 	
-	Add in all slides, whether there are effects or not
+	--Add in all slides, whether there are effects or not
 	
-	Add touchscreen functionality - swipe effects for transitions
+	--Add touchscreen functionality - swipe effects for transitions
 	-Add effect for "Main" video pages: Two-finger reverse swipe to clear away "fog" div from the video.
 	
-	Adjust mediaelement.js so that when a video is finished, it transitions automatically to the next slide
+	--Adjust mediaelement.js so that when a video is finished, it transitions automatically to the next slide
 	
-	Add in final UI 
+	--Add in final UI 
 	
-	Music - add bass string to left hand on intro theme
+	--Music - add bass string to left hand on intro theme
 	
-	Add SoundManager 2 plugin for music tracks. Make sure UI is invisible except for a "sound off" icon
+	--Add SoundManager 2 plugin for music tracks. Make sure UI is invisible except for a "sound off" icon
 	
-	Clean up CSS for text on all slides (may need final footage before this can be done).
+	--Clean up CSS for text on all slides (may need final footage before this can be done).
 	
-	REDIRECT PAGE FUNCTIONS:
+	--REDIRECT PAGE FUNCTIONS:
 	
-	1. Slow fadeOut (Opening to Part 1 Main).
+	1. Swipe to remove semi-transparent div from slide (Part 2-4 Main).
 	
-	2. One second fadeOut to fadeIn. (general slide transitions)
+	2. 
 	
-	3. Swipe to remove semi-transparent div from slide (Part 2-4 Main).
+	--Put media queries for mobile devices - images with boxes drawn on PNG don't scale down to accommodate text
 	
-	4. 
+	--Figure out why HTML resets when you go back to the beginning from Epilogue
+	
+	--Record ambient nature sounds over spring break for Epilogue? 
 
 	*/
 		
@@ -69,9 +70,9 @@
 		position:absolute;
 		z-index:100;
 		width:400px;
-		left:50%;
+		left:45%;
 		margin-left:-200px;
-		margin-top:20%;
+		margin-top:10%;
 	}
 
 	#opening video{
@@ -112,18 +113,22 @@
 		position:absolute;
 		z-index:200;
 		cursor: pointer;
+		opacity: 0.3;
+		width: 50px;
+		height: 50px;
 	}
 	
-	#top{
+	.top{
 		position: absolute;
 		top: 6%;
 		z-index: 190;
+		background-image: url('icon/mochaGrunge.png');
 		display: none;
 		font-family: Lato;
 		font-weight: 300;
 		color: #FFF;
+		width: 100%;
 	}
-	
 	
 	#opening #description{
 		font:normal 1.1em/1.8em Lato, Helvetica, Arial, sans-serif;
@@ -131,7 +136,7 @@
 		text-align: justify;
 		opacity:0;
 	}
-	
+
   </style>
 
 	<script type="text/javascript" charset="utf-8">
@@ -155,27 +160,18 @@
 		}, 1500);
 		
 					
-		//fadeout after clicking the link
+		//fadeup text
+		$(".longtext").animate({'opacity': '1'}, 7000);
 			
-		/*$("a.linkone").click(function(event){
-				
-			event.preventDefault();
-			linkLocation = this.href;
-			$('#opening').animate({'opacity': '0'}, 5000, redirectPage);
-			
-		});
-			
-		function redirectPage(){
-			window.location = linkLocation;
-			
-		}*/
 			
 		/* BRING UP CHAPTER MENU */
 		
+		//var opacity = 0.3, toOpacity = 0.9, duration = 1000;
+		
 		$('#menu').click(function(){
 			
-			$('#top').slideToggle(1000);
-
+			$('.top').slideToggle(1000);
+			
 		});
 		
 		//VIDEO
@@ -188,8 +184,6 @@
            //As background video, make sure it's position absolutely
            mediaelement.container[0].style.position = 'absolute';
            mediaelement.container[0].style.zIndex = '1';
-			   
-			//$("#container").css('top', ($(window).height() - ($(window).width()*.75))/2 );
 
            //background video should autoplay
            player.play();
@@ -212,8 +206,8 @@
 	</script>
 </head>
 <body>
-	<img id="menu" src="icon/index_a.png" width="50" height="50" alt="menu button">
-	<img id="top" src="icon/MENU.png" width="100%" height="auto" alt="Rectangle Top" />
+	<img id="menu" src="icon/button.svg" alt="menu button" class="nav" />
+	<img class="top nav" src="icon/MENUvec3.svg" type="image/svg+xml" alt="Rectangle Top" />
 
   <!-- This is the container, whose contents will be replaced by all of the different sections. -->
   <div id="container">
@@ -223,13 +217,13 @@
 			<h1 class="longtext"><span>THE TOWN</span></h1>
 			<h2 class="longtext"><span>THE RECKONING OF MAMMOTH LAKES, CALIFORNIA</span></h2>
 			<h3 class="text"><span>By C.K. Hickey and Matt Sarnecki</span></h3>
-			<p id="description">An isolated mountain resort agrees to a development deal that<br> leads to a battle of egos, small town prejudice, lost friendships,<br> and financial disaster.</p>
-			<p id="play"><a href="part-one_main.html" class="linkone">PLAY</a></p>
+			<p id="description">An isolated mountain resort agrees to a development<br> deal that leads to a battle of egos, small town<br> prejudice, lost friendships, and financial disaster.</p>
+			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
 		</div>
 		
-		<video width="640" height="480" controls="false">
+		<video width="1920" height="1080" controls="false">
 			<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
-			<source src="videos/intro_animation_placeholder.mp4" />
+			<source src="videos/Opening_Animation.mp4" />
 
 			<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 			<object width="1920" height="1080" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">

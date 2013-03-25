@@ -4,9 +4,9 @@
   /** Style here for this slide only **/
 	
 	#part-two_video{
-		position: relative;
+
 		background: #FFF;
-		opacity: 0;	
+		opacity: 1;	
 	}
 	
 	
@@ -34,29 +34,21 @@
 <script type="text/javascript" charset="utf-8">
   jQuery(document).ready(function($){
       
-		
-		
-		
-		//MediaElement player code-------------------
-		$('video').css('opacity','0').mediaelementplayer({
-      'loop':true,
+	centerVideos();
+
+	//MediaElement player code-------------------
+	$('video').mediaelementplayer({
+      'loop':false,
       'clickToPlayPause':false,
       success:function(player, dom, mediaelement){
         mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';
-				
-				$('video').animate({'opacity':'1'}, 4000);
-				
-				//play video automatically
-        player.play();
-      }
-		});
+        mediaelement.container[0].style.zIndex = '1';			
 
-		$('#part-two_video').animate({'opacity':'1'}, 2000);
-		
-		setTimeout(function(){
-			
-			$('video').animate({'opacity': '1'}, 4000);}, 7000); 
+		//play video automatically
+        player.play();
+		player.addEventListener('ended', function(){console.log("Finished!")});
+      }
+	});
 
   });
 </script>
@@ -76,6 +68,6 @@
         <img src="" width="100%" height="auto" title="No video playback capabilities" />
     </object>
   </video>
-		<h1><a href="part-three_trans.html">(Part II Video Slide)</a></h1>
+		<h1><a href="part-three_trans.html" data-transition="fadeInOut">(Part II Video Slide)</a></h1>
 	</div>
 </div>

@@ -4,7 +4,7 @@
 	#part-two_text1{
 		background-image:url('images/part2text1b.png');
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#twotext1-text{
@@ -55,13 +55,13 @@
 		}
 
 	//fade the slide in	
-	$('#part-two_text1').animate({'opacity':'1'}, 2000); 
+	//$('#part-two_text1').animate({'opacity':'1'}, 2000); 
 	
 	//fadeout after clicking the link
-	$('#swipeicon').on('click', function(){
-		$('#part-two_trans').fadeOut(1000);
+	//$('#swipeicon').on('click', function(){
+		//$('#part-two_trans').fadeOut(1000);
 		
-	});
+	//});
 
 });
 	
@@ -73,5 +73,5 @@
 		<p class="subtext"><span>Starting to explain the development deal. Picture will be like this,<br>or the development agreement, illustrated images, etc.<br><br>This text will help set up the video.</span></p>
 	</div>	
 	<img src="images/part2text1b.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-two_video.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-two_video.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

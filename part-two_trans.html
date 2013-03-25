@@ -4,7 +4,7 @@
 	#part-two_trans{
 		background-image:url('images/002_trans.png');
 		background: #FFF;
-		opacity: 0;
+		opacity: 1;
 	}
 	
 	#twotrans-text{
@@ -46,7 +46,7 @@
 	
 	jQuery(document).ready(function($){
 		
-		$('#part-two_trans').animate({'opacity':'1'}, 2000, function(){glowSwipeIcon();});
+		glowSwipeIcon();
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
@@ -58,10 +58,10 @@
 		}
 		
 		//fadeout after clicking the link - temporary until translucent transition is encoded
-		$('#swipeicon').on('click', function(){
-			$('#part-two_trans').fadeOut(2000);
+		//$('#swipeicon').on('click', function(){
+			//$('#part-two_trans').fadeOut(2000);
 			
-		});
+		//});
 
 });
 	
@@ -75,5 +75,5 @@
 		<p class="subtext"><span>But in order to become a world-class destination, the Town needed to open up to out-of-staters. <br><br>And that meant expanding the airport.</span></p>
 	</div>	
 	<img src="images/002_trans.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-two_main.html"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-two_main.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>
