@@ -4,8 +4,8 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="993px" height="54px" viewBox="0 0 993 54" enable-background="new 0 0 993 54" xml:space="preserve">
 	
-	<a xlink:href="../part-four_main.html" title="part-four_main" data-transition="fadeInOut">
-	<rect x="808" y="10" width="140" height="140" rx="5" ry="5" style="fill:black; opacity:1"></rect>
+	<a xlink:href="../part-four_main.html" title="part-four_main" data-transition="fadeInOut" target="_top">
+	<rect x="808" y="10" width="140" height="140" rx="5" ry="5" style="fill:black; opacity:0"></rect>
 	</a>	
 	<a xlink:href="../part-three_main.html" title="part-three_main" data-transition="fadeInOut">
 	<rect x="660" y="10" width="140" height="140" rx="5" ry="5" style="fill:black; opacity:0"></rect>
@@ -352,7 +352,7 @@ jRIXCOs036d19mxqsQPaUYnqONXNO6zc36OE4GyrRbc805OR9KGVxlbY9duj/9k=" transform="mat
 		l-2.215,15.82h-2.733l-1.327-10.354l-1.301,10.354H70.968z"/>
 	<path fill="#FFFFFF" d="M82.402,35.147V19.318h2.303l3.472,8.279v-8.279h2.654v15.829h-2.215l-3.463-8.78v8.78H82.402z"/>
 </g>
-<text transform="matrix(1 0 0 1 109.5151 38.4727)" font-family="'Lato-Hairline'" font-size="36">|</text>
+<text transform="matrix(1 0 0 1 109.5151 38.4727)" font-family="'Lato'" font-weight="100" font-size="36">|</text>
 <g>
 	<path d="M296.022,11.476v35.996h-2.412V11.476H296.022z"/>
 </g>
