@@ -25,12 +25,12 @@
 	<text transform="matrix(1 0 0 1 668 32.6943)"><tspan x="0" y="0" font-family="'Lato-Light'" font-size="14">III:</tspan><tspan x="15.883" y="0" font-family="'Lato-Hairline'" font-size="14"> </tspan><tspan x="18.586" y="0" font-family="'Lato-Light'" font-size="14">THE LAWSUIT</tspan></text>
 </g>
 <g id="Layer_6">
+	<a xlink:href="../part-four_main.html" title="part-four_main" data-transition="fadeInOut" target="_top">
 	<text transform="matrix(1 0 0 1 810 32.6953)" font-family="'Lato-Light'" font-size="14">IV: THE RECKONING</text>
+	</a>
 </g>
 <g id="Layer_7">
-	<a xlink:href="../part-four_main.html" title="part-four_main" data-transition="fadeInOut" target="_top">
-	<rect x="808" y="5" width="140" height="140" rx="5" ry="5" style="fill:black; opacity:0"></rect>
-	</a>	
+		
 	<a xlink:href="../part-three_main.html" title="part-three_main" data-transition="fadeInOut">
 	<rect x="660" y="5" width="140" height="140" rx="5" ry="5" style="fill:black; opacity:0"></rect>
 	</a>
