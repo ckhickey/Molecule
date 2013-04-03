@@ -45,6 +45,25 @@
 	
 	jQuery(document).ready(function($){
 		
+		$(".longtext").animate({'opacity': '1'}, 4000);
+		
+		setTimeout(function(){
+			$('#description').animate({'opacity':'1'}, 4000);
+		}, 1500);
+
+	
+		//timed fadeup of icon
+		setTimeout(function(){glowSwipeIcon();}, 5000);
+
+		//make swipe icon glow
+		function glowSwipeIcon(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 1000, function(){
+					glowSwipeIcon();
+				})
+			})
+		}
+		
 		centerVideos();
 		
 		//MediaElement player code-------------------
@@ -62,16 +81,14 @@
 		      }
 		});
 	
-	//Slide fades in	
-	//$('#part-two_main').animate({'opacity':'1'}, 2000); 	
 
   });
 </script>
 
 <div id="part-two_main">
 	<div id="opening-text">
-		<h1><a href="part-two_text1.html">Part II: UP HOT CREEK</a></h1>
-		<p class="text"><span>Terry Ballas would make improvements to and run the airport.<br><br>According to the town, the FAA approved this development.<br><br>But things didn't go so well after that. Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.<br><br>Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
+		<h1 class="longtext"><span>Part II: UP HOT CREEK</span></h1>
+		<p id="description"><span>Terry Ballas would make improvements to and run the airport.<br><br>According to the town, the FAA approved this development.<br><br>But things didn't go so well after that. Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.<br><br>Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
 		
 	</div>	
 	<video width="1920" height="1080" controls="false" poster="images/001_trans.png">
@@ -86,5 +103,5 @@
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
-	<a href="part-two_video.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-two_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

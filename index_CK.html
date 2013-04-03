@@ -12,7 +12,7 @@
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=19" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=20" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
@@ -26,9 +26,7 @@
 	-Add links to menu items.
 	-Implement SVG version of image.
 	
-	--Get function 'glowSwipeIcon' to remain off-screen for a few seconds.
-	
-	--Add in all slides, whether there are effects or not
+	--Add social media icons.
 	
 	--Add touchscreen functionality - swipe effects for transitions
 	-Add effect for "Main" video pages: Two-finger reverse swipe to clear away "fog" div from the video.
@@ -40,8 +38,7 @@
 	--Music - add bass string to left hand on intro theme
 	
 	--Add SoundManager 2 plugin for music tracks. Make sure UI is invisible except for a "sound off" icon
-	
-	--Clean up CSS for text on all slides (may need final footage before this can be done).
+	-Sound should fade out when you transition to a new page. 
 	
 	--REDIRECT PAGE FUNCTIONS:
 	
@@ -49,7 +46,7 @@
 	
 	2. 
 	
-	--Put media queries for mobile devices - images with boxes drawn on PNG don't scale down to accommodate text
+	--Put media queries for mobile devices?
 	
 	--Figure out why HTML resets when you go back to the beginning from Epilogue
 	
@@ -69,8 +66,8 @@
 	#opening-text{
 		position:absolute;
 		z-index:100;
-		width:400px;
-		left:45%;
+		width:450px;
+		left:44%;
 		margin-left:-200px;
 		margin-top:10%;
 	}
@@ -107,6 +104,7 @@
 		display:block;
 		text-align:center;
 		padding:40px 0;
+		cursor: pointer;
 	}
 	
 	#menu{
@@ -126,12 +124,12 @@
 		display: none;
 		font-family: Lato;
 		font-weight: 300;
-		color: #FFF;
+		/*color: #FFF;*/
 		width: 100%;
 	}
 	
 	#opening #description{
-		font:normal 1.1em/1.8em Lato, Helvetica, Arial, sans-serif;
+		font:normal 0.8em/1.6em Lato, Helvetica, Arial, sans-serif;
 		font-weight: 300;
 		text-align: justify;
 		opacity:0;
@@ -208,7 +206,7 @@
 </head>
 <body>
 	<img id="menu" src="icon/button.svg" alt="menu button" class="nav" />
-	<img class="top nav" src="icon/MenuRevis.svg" type="image/svg+xml" alt="Rectangle Top" />
+	<img class="top nav" src="icon/MenuRevis4.svg" type="image/svg+xml" alt="Rectangle Top" />
 
   <!-- This is the container, whose contents will be replaced by all of the different sections. -->
   <div id="container">
@@ -217,14 +215,14 @@
 		<div id="opening-text">
 			<h1 class="longtext"><span>THE TOWN</span></h1>
 			<h2 class="longtext"><span>THE RECKONING OF MAMMOTH LAKES, CALIFORNIA</span></h2>
-			<h3 class="text"><span>By C.K. Hickey and Matt Sarnecki</span></h3>
-			<p id="description">An isolated mountain resort agrees to a development<br> deal that leads to a battle of egos, small town<br> prejudice, lost friendships, and financial disaster.</p>
+			<h3 class="text"><span></span></p>
+			<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, 20 miles southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
 			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
 		</div>
 		
 		<video width="1920" height="1080" controls="false">
 			<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
-			<source src="videos/Opening_Animation.mp4" />
+			<source src="videos/Night_Road_Animation.mp4" />
 
 			<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 			<object width="1920" height="1080" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">

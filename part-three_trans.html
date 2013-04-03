@@ -45,7 +45,8 @@
 		
 		//$('#part-three_trans').animate({'opacity':'1'}, 1000, function(){glowSwipeIcon();});
 		
-		glowSwipeIcon();
+		//timed fadeup of icon
+		setTimeout(function(){glowSwipeIcon();}, 5000);
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
@@ -62,9 +63,9 @@
 
 <div id="part-three_trans">
 	<div id="threetrans-text">
-		<h1 class="text"><span>This is the transitional slide to Part III.</span></h1>
-		<p class="subtext"><span>If there's anything left to say about Part II, it goes here. <br><br>And then we lead dramatically towards Part III with the next swipe.</span></p>
+		<h1 class="text"><span>For the first few years, the plans proceeded like normal.</span></h1>
+		<p class="subtext"><span>But what the Town didn't expect was that the FAA would change their mind.<br><br>And then we lead dramatically towards Part III with the next swipe.</span></p>
 	</div>	
 	<img src="images/003_trans.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-three_main.html" data-transition="fadeIn"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-three_main.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

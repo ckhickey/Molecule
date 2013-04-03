@@ -46,12 +46,13 @@
 	
 	jQuery(document).ready(function($){
 		
-		glowSwipeIcon();
+		//timed fadeup of icon
+		setTimeout(function(){glowSwipeIcon();}, 5000);
 		
 		//make swipe icon glow
 		function glowSwipeIcon(){
-			$('#swipeicon').animate({'opacity':'0.3'}, 1500, function(){
-				$('#swipeicon').animate({'opacity':'1.0'}, 1500, function(){
+			$('#swipeicon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#swipeicon').animate({'opacity':'1.0'}, 1000, function(){
 					glowSwipeIcon();
 				})
 			})
@@ -75,5 +76,5 @@
 		<p class="subtext"><span>But in order to become a world-class destination, the Town needed to open up to out-of-staters. <br><br>And that meant expanding the airport.</span></p>
 	</div>	
 	<img src="images/002_trans.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="part-two_main.html" data-transition="fadeIn"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-two_main.html" data-transition="fadeInOut"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>
