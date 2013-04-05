@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>The Town | The Reckoning of Mammoth Lakes, CA</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  <script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js" charset="utf-8"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
-  <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=20" type="text/javascript" charset="utf-8"></script>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
-	
-  <style type="text/css" media="screen">
+<style type="text/css" media="screen">
 	/*** Put styles here for opening slide ***/
 	/*THINGS THAT ARE LEFT:
-	
-	visual indicator on menu button to make it more clear what it is - a +? arrow? triangle? 
-
-	move red triangle navigation location
-
-	get vertical alignment when browser width is more than height
-
-	set timeout for play button
-
-	allow people to scroll through quickly.
-
-	scrubber needs to be in here
-
-	bring back the semitransparent box of text on Part 4 title, move back to the right
 	
 	--MORE OR LESS DONE----Get video clips to cue AFTER slide text
 	
@@ -119,59 +88,7 @@
 		text-align:center;
 		padding:40px 0;
 		cursor: pointer;
-		opacity: 0;
 	}
-	
-	/*#topmenu{
-		position: fixed;
-		height: 5%;
-		width: 100%;
-		overflow: hidden;
-		left: 5%;
-		font-size: ;
-		color: #FFF;
-		z-index: 200;
-	}
-	
-	#topmenu ul{
-		font-family: Lato;
-		font-weight: 300;
-		font-size: 14px;
-		line-height: 0.8;
-	}
-	
-	#topmenu ul #one, #topmenu ul #two, #topmenu ul #three, #topmenu ul #four{
-		top: 15px;
-	}
-	
-	#topmenu ul #title{
-		position: absolute;
-		font-family: Oswald;
-		font-weight: 700;
-		font-size: 18px;
-		left: 17px;
-		top: 17px;
-	}
-	
-	#topmenu ul #one{
-		position: absolute;
-		left: 159px;
-	}
-	
-	#topmenu ul #two{
-		position: absolute;
-		left: 377px;
-	}
-	
-	#topmenu ul #three{
-		position: absolute;
-		left: 578px;
-	}
-	
-	#topmenu ul #four{
-		position: absolute;
-		left: 809px;
-	}*/
 	
 	#menu{
 		position:absolute;
@@ -180,7 +97,6 @@
 		opacity: 0.3;
 		width: 50px;
 		height: 50px;
-		/*margin-top: -8%;*/
 	}
 	
 	.top{
@@ -223,14 +139,10 @@
 		setTimeout(function(){
 			$('#description').animate({'opacity':'1'}, 4000);
 		}, 1500);
-		clearTimeout(this);
-		setTimeout(function(){
-			$('#play a').animate({'opacity':'1'}, 4000);
-		},5000);	
 		
 					
 		//fadeup text
-		/*$(".longtext").animate({'opacity': '1'}, 7000);*/
+		$(".longtext").animate({'opacity': '1'}, 7000);
 			
 			
 		/* BRING UP CHAPTER MENU */
@@ -240,7 +152,6 @@
 		$('#menu').click(function(){
 			
 			$('.top').slideToggle(1000);
-			//$('#topmenu').css({'overflow':'visible'}, 1500);
 			
 		});
 		
@@ -252,7 +163,7 @@
          'clickToPlayPause':false,
          success:function(player, dom, mediaelement){
 
-           //As background video, make sure it's positioned absolutely
+           //As background video, make sure it's position absolutely
            mediaelement.container[0].style.position = 'absolute';
            mediaelement.container[0].style.zIndex = '1';
 
@@ -277,18 +188,7 @@
 	</script>
 </head>
 <body>
-	<!-- <div id="topmenu">
-		<nav>
-			<ul>
-				<li id="title"><a href="index_CK.html" data-transition="fadeInOut" data-transitionspeed="3000"> THE TOWN</li>
-				<li id="one"><a href="part-one_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART I<br><br>BEFORE THE FALL</a></li>
-				<li id="two"><a href="part-two_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART II<br><br>THE AGREEMENT</a></li>
-				<li id="three"><a href="part-three_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART III<br><br>DREAM GOING DOWN</a></li>
-				<li id="four"><a href="part-four_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART IV<br><br>THE RECKONING</a></li>
-			</ul>
-		</nav>		
-	</div> -->
-	<img id="menu" src="icon/button2.svg" alt="menu button" class="nav" />
+	<img id="menu" src="icon/button.svg" alt="menu button" class="nav" />
 	<img class="top nav" src="icon/MenuRevis4.svg" type="image/svg+xml" alt="Rectangle Top" />
 
   <!-- This is the container, whose contents will be replaced by all of the different sections. -->
@@ -299,7 +199,7 @@
 			<h1 class="longtext"><span>THE TOWN</span></h1>
 			<h2 class="longtext"><span>THE BANKRUPTCY OF MAMMOTH LAKES, CALIFORNIA</span></h2>
 			<h3 class="text"><span></span></p>
-			<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
+			<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, 20 miles southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
 			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
 		</div>
 		

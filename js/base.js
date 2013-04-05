@@ -12,7 +12,7 @@ function bindLinksToLoadNewSections(){
       e.preventDefault();
       if(fade !== null && ("fadeout" == fade.toLowerCase() || "fadeinout" == fade.toLowerCase())){
 		if(speed == null){ speed = 500; }
-		jQuery('#container').animate({'opacity': 0}, speed, function(){
+		jQuery('#container').stop().animate({'opacity': 0}, speed, function(){
 			goToNextSection(href, fade, speed);
 		});
 	  } else {
@@ -24,19 +24,22 @@ function bindLinksToLoadNewSections(){
 }
 
 function goToNextSection(href, fade, speed){
+	
+	//This line is where you put the function to fade out any sound file that might be playing
+	
 	jQuery.ajax({url:href,dataType:'html'}).done(
 		function(data){
 			jQuery('#container').html(data);
 			if(fade !== null && ("fadein" == fade.toLowerCase() || "fadeinout" == fade.toLowerCase())){
-				jQuery('#container').animate({'opacity':1}, speed, function(){
+				jQuery('#container').stop().animate({'opacity':1}, speed, function(){
 					bindLinksToLoadNewSections();
 				});
 			} else{
 				jQuery('#container').css({'opacity':1});
 				bindLinksToLoadNewSections();
 			}
-			centerVideos();
-		});
+		centerVideos();
+	});
 }
 
 function centerVideos(){
