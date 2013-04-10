@@ -6,20 +6,20 @@
   <title>The Town | The Reckoning of Mammoth Lakes, CA</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css?" type="text/css" media="screen" title="no title" charset="utf-8">
   <script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js" charset="utf-8"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=20" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=28" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
 	/*** Put styles here for opening slide ***/
 	/*THINGS THAT ARE LEFT: OK!
 	
-	visual indicator on menu button to make it more clear what it is - a +? arrow? triangle? 
+	DONE: visual indicator on menu button to make it more clear what it is - a +? arrow? triangle? 
 
 	move red triangle navigation location
 
@@ -124,63 +124,57 @@
 	
 	#topmenu{
 		position: fixed;
-		height: 5%;
 		width: 100%;
 		overflow: hidden;
-		left: 5%;
-		font-size: ;
-		color: #FFF;
-		z-index: 200;
+		left: 0;
+		top:0;
+		color: #fff;
+		background:#333;
+		z-index: 9000;
+	}
+	
+	#topmenu nav{
+		max-width:800px;
+		width:90%;
 	}
 	
 	#topmenu ul{
-		font-family: Lato;
+	  margin-left:50px;
+		font-family: Lato, sans-serif;
+    width:100%;
 		font-weight: 300;
 		font-size: 14px;
-		line-height: 0.8;
+		display:table; /* this mimics the <table> tag */
 	}
 	
-	#topmenu ul #one, #topmenu ul #two, #topmenu ul #three, #topmenu ul #four{
-		top: 15px;
-	}
-	
-	#topmenu ul #title{
-		position: absolute;
-		font-family: Oswald;
+	#topmenu #title{
+	  font-family: Oswald, sans-serif;
 		font-weight: 700;
 		font-size: 18px;
-		left: 17px;
-		top: 17px;
 	}
 	
-	#topmenu ul #one{
-		position: absolute;
-		left: 159px;
+	#topmenu .part-title{
+	  display:block;
+	  font-family:'Times New Roman', Times, serif;
+	  font-size:0.92em;
+    margin:0 0 5px 0;
 	}
 	
-	#topmenu ul #two{
-		position: absolute;
-		left: 377px;
+	#topmenu li{
+	  display:table-cell; /* this allows vertical alignment, and more responsive design */
+	  vertical-align: middle;
+	  padding:10px 5px;
+	  text-align:left;
 	}
 	
-	#topmenu ul #three{
-		position: absolute;
-		left: 578px;
-	}
-	
-	#topmenu ul #four{
-		position: absolute;
-		left: 809px;
-	}
-	
-	#menu{
-		position:absolute;
-		z-index:200;
+	#menu-toggle{
+		position:fixed;
+		top:0;
+		z-index:9100;
 		cursor: pointer;
 		opacity: 0.3;
 		width: 50px;
 		height: 50px;
-		/*margin-top: -8%;*/
 	}
 	
 	.top{
@@ -278,17 +272,17 @@
 </head>
 <body>
 	<div id="topmenu">
+	  <img id="menu-toggle" src="icon/button2.svg" alt="menu button" class="nav" />
 		<nav>
 			<ul>
-				<li id="title"><a href="index_CK.html" data-transition="fadeInOut" data-transitionspeed="3000"> THE TOWN</li>
-				<li id="one"><a href="part-one_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART I<br><br>BEFORE THE FALL</a></li>
-				<li id="two"><a href="part-two_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART II<br><br>THE AGREEMENT</a></li>
-				<li id="three"><a href="part-three_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART III<br><br>DREAM GOING DOWN</a></li>
-				<li id="four"><a href="part-four_main.html" data-transition="fadeInOut" data-transitionspeed="3000">PART IV<br><br>THE RECKONING</a></li>
+				<li id="title"><a href="index_CK.html"> THE TOWN</li>
+				<li id="one"><a href="part-one_main.html"><span class="part-title">PART I</span> BEFORE THE FALL</a></li>
+				<li id="two"><a href="part-two_main.html"><span class="part-title">PART II</span> THE AGREEMENT</a></li>
+				<li id="three"><a href="part-three_main.html"><span class="part-title">PART III</span> DREAM GOING DOWN</a></li>
+				<li id="four"><a href="part-four_main.html"><span class="part-title">PART IV</span> THE RECKONING</a></li>
 			</ul>
 		</nav>		
-	</div>
-	<img id="menu" src="icon/button2.svg" alt="menu button" class="nav" />
+	</div><!-- end #topmenu -->
 	<!-- <img class="top nav" src="icon/MenuRevis4.svg" type="image/svg+xml" alt="Rectangle Top" /> -->
 
   <!-- This is the container, whose contents will be replaced by all of the different sections. -->
@@ -310,7 +304,7 @@
 			<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 			<object width="1920" height="1080" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
 				<param name="movie" value="build/flashmediaelement.swf" />
-				<param name="flashvars" value="controls=false&file=videos/intro_animation_placeholder.mp4" />
+				<param name="flashvars" value="controls=false&file=videos/Night_Road_Animation.mp4" />
 
 				<!-- Image as a last resort -->
 				<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />

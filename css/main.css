@@ -32,11 +32,6 @@ html{
     z-index: 1;
  }
 
- #menu{
-	position:absolute;
-	top:0;
-}
-
 #tspan{
 	cursor: pointer;
 }

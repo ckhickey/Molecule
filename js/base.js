@@ -52,27 +52,27 @@ function centerVideos(){
 	videoheight = (videoheight.match(/\%/) || videoheight.match(/auto/) || videowidth == 1920) ? 1080 : videoheight;
 	
 	//now that we have the sizes, make it responsive
-	$('video, video object, video img').attr('width', '100%').attr('height', 'auto');
+	$('video, video object, video embed, video img').attr('width', '100%').attr('height', 'auto');
 	
-	console.log("Window height: " + $(window).height() + ", Window width: " + $(window).width() + ", videowidth: " + videowidth + ", videoheight: " + videoheight);
+	console.log("Window width: " + $(window).width() + ", Window height: " + $(window).height() + ", VideoWidth: " + videowidth + ", VideohHeight: " + videoheight);
 	//vertically center the container
-	if($(window).width() * videoheight/videowidth > $(window).height){
-		$('#container').css({'width':Math.floor($(window).height() * videowidth/videoheight), 'height':$(window).height, 'left':($(window).width() - videowidth)/2});
+	if($(window).width() * videoheight/videowidth > $(window).height()){
+		$('#container').css({'width':Math.floor($(window).height() * videowidth/videoheight), 'height':$(window).height(), 'left':($(window).width() - Math.floor($(window).height() * videowidth/videoheight))/2, 'top':0});
 	} else {
-		$('#container').css({'width':'100%', 'height': Math.floor($(window).width() * videoheight/videowidth), 'top':($(window).height() - Math.floor($(window).width() * videoheight/videowidth))/2});
+		$('#container').css({'width':'100%', 'height': Math.floor($(window).width() * videoheight/videowidth), 'top':($(window).height() - Math.floor($(window).width() * videoheight/videowidth))/2, 'left':0});
 	}
 	
 	$(window).on('resize', function(){
-		if($(window).width() * videoheight/videowidth > $(window).height){
-			$('#container').css({'width':Math.floor($(window).height() * videowidth/videoheight), 'height':$(window).height, 'left':($(window).width() - videowidth)/2});
-			$('.nav').css({'top': $('#container').css('top')});
+		if($(window).width() * videoheight/videowidth > $(window).height()){
+  		$('#container').css({'width':Math.floor($(window).height() * videowidth/videoheight), 'height':$(window).height(), 'left':($(window).width() - Math.floor($(window).height() * videowidth/videoheight))/2, 'top':0});
+			//$('.nav').css({'top': $('#container').css('top')});
 		} else {
-			$('#container').css({'width':'100%', 'height': Math.floor($(window).width() * videoheight/videowidth), 'top':($(window).height() - Math.floor($(window).width() * videoheight/videowidth))/2});
-			$('.nav').css({'top': $('#container').css('top')});
+  		$('#container').css({'width':'100%', 'height': Math.floor($(window).width() * videoheight/videowidth), 'top':($(window).height() - Math.floor($(window).width() * videoheight/videowidth))/2, 'left':0});
+			//$('.nav').css({'top': $('#container').css('top')});
 		}
 	})
 	
-	$('.nav').css({'top': $('#container').css('top')});
+	//$('.nav').css({'top': $('#container').css('top')});
 }
 
 /**
