@@ -128,6 +128,7 @@
 		overflow: hidden;
 		left: 0;
 		top:0;
+		height:0;
 		color: #fff;
 		background:#333;
 		z-index: 9000;
@@ -231,11 +232,16 @@
 		
 		//var opacity = 0.3, toOpacity = 0.9, duration = 1000;
 		
-		$('#menu').click(function(){
-			
-			//$('.top').slideToggle(1000);
-			$('#topmenu').css({'overflow':'visible'}, 1500);
-			
+		var menuVisible = false;
+		
+		$('#menu-toggle').click(function(){
+			if(menuVisible){
+			  $('#topmenu').stop().animate({'height':'0px'}, 300);
+			  menuVisible = false;
+			} else {
+			  $('#topmenu').stop().animate({'height':'55px'}, 300);
+  			menuVisible = true;
+			}
 		});
 		
 		
