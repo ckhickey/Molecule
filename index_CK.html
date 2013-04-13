@@ -29,9 +29,9 @@
 
 	DONE: set timeout for play button
 
-	allow people to scroll through quickly.
+	DONE: allow people to scroll through quickly.
 
-	scrubber needs to be in here
+	DONE: scrubber needs to be in here
 
 	bring back the semitransparent box of text on Part 4 title, move back to the right
 	
@@ -233,6 +233,9 @@
 		$('video').mediaelementplayer({
 			'loop':true,
 			'clickToPlayPause':false,
+			'enableAutosize': true,
+			'videoWidth': '100%',
+			'videoHeight': '100%',
 			success:function(player, dom, mediaelement){
 				mediaelement.disableControls();
 				player.play();
