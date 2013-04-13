@@ -1,5 +1,7 @@
 <!-- No head or body tags, since this page will be loaded into the main index.html -->
 <style type="text/css" media="screen">
+
+  .mejs-container .mejs-controls { display:block; visibility:visible; }
   
 	#part-two_main{
 		background: #FFF;
@@ -9,7 +11,7 @@
 	#part-two_main #opening-text{
 		position: absolute;
 		z-index: 100;
-		width: 400px;
+		width: 40%;
 		margin-left: -40%;
 		margin-top: 5%;
 		background-color: rgba(255, 255, 255, 0.9);
@@ -23,11 +25,11 @@
 		}
 	}
 	
-	#part-two_main h1, a, p{
+	#part-two_main #part-two_main h1, #part-two_main a, #part-two_main p{
 		color: #000;
 	}
 	
-	#part-two_main h1, a {
+	#part-two_main h1, #part-two_main a {
 		font-size: 36px;
 		font-family: Oswald;
 		margin-left: 5px;
@@ -51,46 +53,23 @@
 </style>
 <script type="text/javascript" charset="utf-8">
 	
-	jQuery(document).ready(function($){
-		
-		$(".longtext").animate({'opacity': '1'}, 4000);
+		$("#part-two_main .longtext").animate({'opacity': '1'}, 4000);
 		
 		setTimeout(function(){
 			$('#description').animate({'opacity':'1'}, 4000);
 		}, 1500);
-
-	
-		//timed fadeup of icon
-		setTimeout(function(){glowSwipeIcon();}, 5000);
-
-		//make swipe icon glow
-		function glowSwipeIcon(){
-			$('#swipeicon').animate({'opacity':'0.3'}, 1000, function(){
-				$('#swipeicon').animate({'opacity':'1.0'}, 1000, function(){
-					glowSwipeIcon();
-				})
-			})
-		}
 		
-		centerVideos();
-		
-		//MediaElement player code-------------------
 		$('video').mediaelementplayer({
-      'loop':true,
-      'clickToPlayPause':false,
-      success:function(player, dom, mediaelement){
-        mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';
-				
-				//$('video').animate({'opacity':'1'}, 4000);
-				
-				//play video automatically
-      		    player.play();
-		      }
+			'loop':true,
+			'clickToPlayPause':false,
+			success:function(player, dom, mediaelement){
+				mediaelement.disableControls();
+				player.play();
+				readyToNavigate.videoReady = true;
+			}
 		});
-	
 
-  });
+	
 </script>
 
 <div id="part-two_main">
@@ -99,17 +78,17 @@
 		<p id="description"><span>Terry Ballas would make improvements to and run the airport.<br><br>According to the town, the FAA approved this development.<br><br>But things didn't go so well after that. Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.<br><br>Describe your relationship with Terry Ballas. Describe The Town’s perception of Ballas before and after the lawsuit. Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
 		
 	</div>	
-	<video width="1920" height="1080" controls="false" poster="images/001_trans.png">
-	   <source src="videos/part_2_animation.mov" type="video/mp4" />
+	<video width="100%" height="auto" controls="true" data-scrubber="true" poster="images/001_trans.png">
+		<source src="videos/part_2_animation.mov" type="video/mp4" />
 
-	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-	   <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
-	       <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-	       <param name="flashvars" value="controls=false&file=videos/Part_2_Animation.mp4" />
+		<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+		<object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+			<param name="movie" value="js/mediaelement/flashmediaelement.swf" />
+			<param name="flashvars" value="controls=false&file=videos/part_2_animation.mov" />
 
-	       <!-- Image as a last resort -->
-	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
-	   </object>
-	 </video>
+			<!-- Image as a last resort -->
+			<img src="" width="100%" height="auto" title="No video playback capabilities" />
+		</object>
+	</video>
 	<a href="part-two_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
 </div>

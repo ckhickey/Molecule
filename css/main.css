@@ -11,7 +11,8 @@ html{
 		height:100%;
 	}
 	/* When using media element player, hide controls completely */
-  .mejs-container .mejs-controls { display:none !important; }
+  /* .mejs-container .mejs-controls { display:none !important; } */
+ .mejs-controls { position: fixed !important; bottom:0 !important; z-index:902;}
   #container{
     position: relative;
     background-color: #000;

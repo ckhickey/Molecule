@@ -26,28 +26,38 @@
 
 <!-- Scripts that pertain to this section should also be here -->
 <script type="text/javascript" charset="utf-8">
-  jQuery(document).ready(function($){
 
-	centerVideos();
+
+	//centerVideos();
 		
 	//MediaElement player code-------------------
+	/*
 	$('video').mediaelementplayer({
-      'loop':false,
-      'clickToPlayPause':false,
-      success:function(player, dom, mediaelement){
-        mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';			
+		'loop':false,
+		'clickToPlayPause':false,
+		success:function(player, dom, mediaelement){
+			mediaelement.container[0].style.position = 'absolute';
+			mediaelement.container[0].style.zIndex = '1';
+			
+			//centerVideos();
 
-		//play video automatically
-        player.play();
-		player.addEventListener('ended', function(){console.log("Finished!")});
-      }
+			//play video automatically
+			player.play();
+			player.addEventListener('ended', function(){console.log("Finished!")});
+		}
 	});
-	
-	
-	
-
-  });
+	*/
+	$('video').mediaelementplayer({
+		'loop':true,
+		'clickToPlayPause':false,
+		success:function(player, dom, mediaelement){
+			
+			readyToNavigate.videoReady = true;
+			
+			mediaelement.enableControls();
+			player.play();
+		}
+	});
 </script>
 
 <!-- This is your slide -->
@@ -55,14 +65,14 @@
 	<div id="part-one-text">
 		<h1><a href="part-two_main.html" data-transition="fadeOut">(next)</a></h1>
 	</div>
-	<video width="1920" height="1080" controls="false" poster="images/001_trans.png">
+	<video width="100%" height="auto" controls="true" data-scrubber="true" poster="images/001_trans.png">
 	  <source src="videos/CK_Presentation_Video_1.mp4" type="video/mp4" />
-  
+
 	  <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-	  <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+	  <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
 	      <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-	      <param name="flashvars" value="controls=false&file=" />
-      
+	      <param name="flashvars" value="controls=false&file=videos/CK_Presentation_Video_1.mp4" />
+
 	      <!-- Image as a last resort -->
 	      <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	  </object>

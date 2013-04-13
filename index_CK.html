@@ -6,13 +6,15 @@
   <title>The Town | The Reckoning of Mammoth Lakes, CA</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <link rel="stylesheet" href="css/main.css?" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css?5" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="js/mediaelement/mediaelementplayer.css" type="text/css" media="screen" charset="utf-8">
   <script type="text/javascript" src="js/modernizr-2.6.2-respond-1.1.0.min.js" charset="utf-8"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
+
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=28" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=42" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
@@ -23,9 +25,9 @@
 
 	move red triangle navigation location
 
-	get vertical alignment when browser width is more than height
+	DONE: get vertical alignment when browser width is more than height
 
-	set timeout for play button
+	DONE: set timeout for play button
 
 	allow people to scroll through quickly.
 
@@ -171,7 +173,7 @@
 	#menu-toggle{
 		position:fixed;
 		top:0;
-		z-index:9100;
+		z-index:9999;
 		cursor: pointer;
 		opacity: 0.3;
 		width: 50px;
@@ -201,91 +203,57 @@
 
 	<script type="text/javascript" charset="utf-8">
 	/*** Put any scripts here for opening slide only ***/
+	//make play button glow
+	function glowPlayButton(){
+		$('#play').animate({'opacity':'0.3'}, 1000, function(){
+			$('#play').animate({'opacity':'1.0'}, 1000, function(){
+				glowPlayButton();
+			})
+		})
+	}
 	
 	jQuery(document).ready(function($){
-		
-		/*
-		
-		h1.longtext is The Town
-		h2.longtext is Reckoning of mammoth
-		.text is credits
-		#description is opening description
-		
-		*/
-		
-		$(".longtext, .text").animate({'opacity': '1'}, 4000);
-		
-		setTimeout(function(){
-			$('#description').animate({'opacity':'1'}, 4000);
-		}, 1500);
-		clearTimeout(this);
-		setTimeout(function(){
-			$('#play a').animate({'opacity':'1'}, 4000);
-		},5000);	
-		
-					
-		//fadeup text
-		/*$(".longtext").animate({'opacity': '1'}, 7000);*/
-			
-			
-		/* BRING UP CHAPTER MENU */
-		
-		//var opacity = 0.3, toOpacity = 0.9, duration = 1000;
-		
+				
+		/****** BRING UP CHAPTER MENU AT TOP  ******/
 		var menuVisible = false;
-		
 		$('#menu-toggle').click(function(){
 			if(menuVisible){
 			  $('#topmenu').stop().animate({'height':'0px'}, 300);
 			  menuVisible = false;
 			} else {
 			  $('#topmenu').stop().animate({'height':'55px'}, 300);
-  			menuVisible = true;
+			  menuVisible = true;
 			}
 		});
+		$('#topmenu a').on('click', function(){
+			$('#topmenu').stop().animate({'height':'0px'}, 300);
+			menuVisible = false;
+		});
 		
-		
-		//VIDEO
-			
 		$('video').mediaelementplayer({
-         'loop':true,
-         'clickToPlayPause':false,
-         success:function(player, dom, mediaelement){
+			'loop':true,
+			'clickToPlayPause':false,
+			success:function(player, dom, mediaelement){
+				mediaelement.disableControls();
+				player.play();
+				readyToNavigate.videoReady = true;
+			}
+		});
 
-           //As background video, make sure it's positioned absolutely
-           mediaelement.container[0].style.position = 'absolute';
-           mediaelement.container[0].style.zIndex = '1';
-
-           //background video should autoplay
-           player.play();
-         }
-		 });
-	
-		//fadeup opening	
-		$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
-		
-		//make play button glow
-		function glowPlayButton(){
-			$('#play').animate({'opacity':'0.3'}, 1000, function(){
-				$('#play').animate({'opacity':'1.0'}, 1000, function(){
-					glowPlayButton();
-				})
-			})
-		}			
 	});
 	
 	</script>
 </head>
 <body>
+	<img id="menu-toggle" src="icon/button2.svg" alt="menu button" class="nav" style="z-index:9999" />
 	<div id="topmenu">
-	  <img id="menu-toggle" src="icon/button2.svg" alt="menu button" class="nav" />
 		<nav>
 			<ul>
-				<li id="title"><a href="index_CK.html"> THE TOWN</li>
-				<li id="one"><a href="part-one_main.html"><span class="part-title">PART I</span> BEFORE THE FALL</a></li>
-				<li id="two"><a href="part-two_main.html"><span class="part-title">PART II</span> THE AGREEMENT</a></li>
-				<li id="three"><a href="part-three_main.html"><span class="part-title">PART III</span> DREAM GOING DOWN</a></li>
-				<li id="four"><a href="part-four_main.html"><span class="part-title">PART IV</span> THE RECKONING</a></li>
+				<li id="title"><a href="index-repeat.html?" title="Navigate back home">THE TOWN</a></li>
+				<li id="one"><a href="part-one_main.html?" title="Navigate to Before The Fall"><span class="part-title">PART I</span> BEFORE THE FALL</a></li>
+				<li id="two"><a href="part-two_main.html" title="Navigate to The Agreement"><span class="part-title">PART II</span> THE AGREEMENT</a></li>
+				<li id="three"><a href="part-three_main.html" title="Navigate to Dream Going Down"><span class="part-title">PART III</span> DREAM GOING DOWN</a></li>
+				<li id="four"><a href="part-four_main.html" title="Navigate to The Reckoning"><span class="part-title">PART IV</span> THE RECKONING</a></li>
 			</ul>
 		</nav>		
 	</div><!-- end #topmenu -->
@@ -302,23 +270,45 @@
 			<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
 			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
 		</div>
-		
-		<video width="1920" height="1080" controls="false" data-scrubber="false">
+	
+		<video id="themainvideo" width="100%" height="auto" controls="false" data-scrubber="false">
 			<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
-			<source src="videos/Night_Road_Animation.mp4" />
+			<source src="videos/Night_Road_Animation.mp4" type="video/mp4" />
 
 			<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-			<object width="1920" height="1080" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
+			<object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
 				<param name="movie" value="build/flashmediaelement.swf" />
 				<param name="flashvars" value="controls=false&file=videos/Night_Road_Animation.mp4" />
 
 				<!-- Image as a last resort -->
-				<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />
+				<!--<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />-->
 			</object>
 		</video>
 		
-		<embed height="10" width="10" src="music/theme5edit.m4a">
+		<!--<embed height="10" width="10" src="music/theme5edit.m4a">-->
 	 </div><!-- end #opening -->
+	<script>
+		//fadeup text
+		/*
+		h1.longtext is The Town
+		h2.longtext is Reckoning of mammoth
+		.text is credits
+		#description is opening description
+		*/
+		$(".longtext, .text").animate({'opacity': '1'}, 4000);
+
+		setTimeout(function(){
+			$('#description').animate({'opacity':'1'}, 4000);
+		}, 1500);
+		clearTimeout(this);
+		setTimeout(function(){
+			$('#play a').animate({'opacity':'1'}, 4000);
+		},5000);	
+
+		//fadeup opening	
+		$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
+	</script>
+
   </div><!-- end #container -->
 </body>
 </html>

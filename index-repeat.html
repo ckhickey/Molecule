@@ -1,224 +1,56 @@
-<style type="text/css" media="screen">
-	/*** Put styles here for opening slide ***/
-	/*THINGS THAT ARE LEFT:
-	
-	--MORE OR LESS DONE----Get video clips to cue AFTER slide text
-	
-	--DONE----Add in chapter menu selector
-	-Replace menu image with blank box save for title and vertical line - code in the rest of the text?
-	-Add links to menu items.
-	-Implement SVG version of image.
-	
-	--Add social media icons.
-	
-	--Add touchscreen functionality - swipe effects for transitions
-	-Add effect for "Main" video pages: Two-finger reverse swipe to clear away "fog" div from the video.
-	
-	--Adjust mediaelement.js so that when a video is finished, it transitions automatically to the next slide
-	
-	--Add in final UI 
-	
-	--Music - add bass string to left hand on intro theme
-	
-	--Add SoundManager 2 plugin for music tracks. Make sure UI is invisible except for a "sound off" icon
-	-Sound should fade out when you transition to a new page. 
-	
-	--REDIRECT PAGE FUNCTIONS:
-	
-	1. Swipe to remove semi-transparent div from slide (Part 2-4 Main).
-	
-	2. 
-	
-	--Put media queries for mobile devices?
-	
-	--Figure out why HTML resets when you go back to the beginning from Epilogue
-	
-	--Record ambient nature sounds over spring break for Epilogue? 
 
+<div id="opening"> 
+	<div id="opening-text">
+		<h1 class="longtext"><span>THE TOWN</span></h1>
+		<h2 class="longtext"><span>THE BANKRUPTCY OF MAMMOTH LAKES, CALIFORNIA</span></h2>
+		<h3 class="text"><span></span></p>
+		<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
+		<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
+	</div>
+
+	<video id="themainvideo" width="100%" height="auto" controls="false" data-scrubber="false">
+		<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
+		<source src="videos/Night_Road_Animation.mp4" type="video/mp4" />
+
+		<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+		<object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+			<param name="movie" value="build/flashmediaelement.swf" />
+			<param name="flashvars" value="controls=false&file=videos/Night_Road_Animation.mp4" />
+
+			<!-- Image as a last resort -->
+			<!--<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />-->
+		</object>
+	</video>
+	
+	<!--<embed height="10" width="10" src="music/theme5edit.m4a">-->
+ </div><!-- end #opening -->
+<script>
+	//fadeup text
+	/*
+	h1.longtext is The Town
+	h2.longtext is Reckoning of mammoth
+	.text is credits
+	#description is opening description
 	*/
-		
-	#container{
-		background: #000;
-	}
-	
-	#opening{ 
-		color:#fff5cc;
-		opacity:0;
-	}
-	
-	#opening-text{
-		position:absolute;
-		z-index:100;
-		width:450px;
-		left:44%;
-		margin-left:-200px;
-		margin-top:10%;
-	}
+	$(".longtext, .text").animate({'opacity': '1'}, 4000);
 
-	#opening video{
-		position: absolute;
-		top: 0;
-		z-index: 1;
-		border:1px solid white;
-	}
+	setTimeout(function(){
+		$('#description').animate({'opacity':'1'}, 4000);
+	}, 1500);
+	clearTimeout(this);
+	setTimeout(function(){
+		$('#play a').animate({'opacity':'1'}, 4000);
+	},5000);	
 
-	#opening h1{
-		font-size: 48px;
-		line-height:48px;
-		opacity: 0;
-		padding: 1% 0 0 0;
-		
-	}
-	#opening h2{
-		font:300 1.5em/1.5em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;
-		opacity: 0;
-		padding: 15px 0 0 0;
-	}
-	
-	#opening h3{
-		font:300 1.2em/1.5em Oswald, "Gill Sans", Helvetica, Arial, sans-serif;
-		opacity: 0;
-		padding: 15px 0;
-	}
-	
-	#opening #play a{
-		font:400 1.5em/1.5em Oswald, Arial, Helvetica, sans-serif;
-		color: #fff5cc;
-		display:block;
-		text-align:center;
-		padding:40px 0;
-		cursor: pointer;
-	}
-	
-	#menu{
-		position:absolute;
-		z-index:200;
-		cursor: pointer;
-		opacity: 0.3;
-		width: 50px;
-		height: 50px;
-	}
-	
-	.top{
-		position: absolute;
-		top: 6%;
-		z-index: 190;
-		/*background-image: url('icon/mochaGrunge.png');*/
-		display: none;
-		font-family: Lato;
-		font-weight: 300;
-		/*color: #FFF;*/
-		width: 100%;
-	}
-	
-	#opening #description{
-		font:normal 0.8em/1.6em Lato, Helvetica, Arial, sans-serif;
-		font-weight: 300;
-		text-align: justify;
-		opacity:0;
-	}
-
-  </style>
-
-	<script type="text/javascript" charset="utf-8">
-	/*** Put any scripts here for opening slide only ***/
-	
-	jQuery(document).ready(function($){
-		
-		/*
-		
-		h1.longtext is The Town
-		h2.longtext is Reckoning of mammoth
-		.text is credits
-		#description is opening description
-		
-		*/
-		
-		$(".longtext, .text").animate({'opacity': '1'}, 4000);
-		
-		setTimeout(function(){
-			$('#description').animate({'opacity':'1'}, 4000);
-		}, 1500);
-		
-					
-		//fadeup text
-		$(".longtext").animate({'opacity': '1'}, 7000);
-			
-			
-		/* BRING UP CHAPTER MENU */
-		
-		//var opacity = 0.3, toOpacity = 0.9, duration = 1000;
-		
-		$('#menu').click(function(){
-			
-			$('.top').slideToggle(1000);
-			
-		});
-		
-		
-		//VIDEO
-			
-		$('video').mediaelementplayer({
-         'loop':true,
-         'clickToPlayPause':false,
-         success:function(player, dom, mediaelement){
-
-           //As background video, make sure it's position absolutely
-           mediaelement.container[0].style.position = 'absolute';
-           mediaelement.container[0].style.zIndex = '1';
-
-           //background video should autoplay
-           player.play();
-         }
-		 });
-	
-		//fadeup opening	
-		$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
-		
-		//make play button glow
-		function glowPlayButton(){
-			$('#play').animate({'opacity':'0.3'}, 1000, function(){
-				$('#play').animate({'opacity':'1.0'}, 1000, function(){
-					glowPlayButton();
-				})
-			})
-		}			
+	//fadeup opening	
+	$('#opening').animate({'opacity': '1'}, 1000, function(){glowPlayButton();});
+	$('video').mediaelementplayer({
+		'loop':true,
+		'clickToPlayPause':false,
+		success:function(player, dom, mediaelement){
+			mediaelement.disableControls();
+			player.play();
+			readyToNavigate.videoReady = true;
+		}
 	});
-	
-	</script>
-</head>
-<body>
-	<img id="menu" src="icon/button.svg" alt="menu button" class="nav" />
-	<img class="top nav" src="icon/MenuRevis4.svg" type="image/svg+xml" alt="Rectangle Top" />
-
-  <!-- This is the container, whose contents will be replaced by all of the different sections. -->
-  <div id="container">
-	
-	<div id="opening"> 
-		<div id="opening-text">
-			<h1 class="longtext"><span>THE TOWN</span></h1>
-			<h2 class="longtext"><span>THE BANKRUPTCY OF MAMMOTH LAKES, CALIFORNIA</span></h2>
-			<h3 class="text"><span></span></p>
-			<p id="description">An isolated mountain resort agrees to a development deal that leads to a battle of egos, small town prejudice, lost friendships, and financial disaster. <br><br> Mammoth Lakes is a resort town in central California, 20 miles southeast of Yosemite. The nearest cities are over 150 miles away. The population is 8000, the elevation is 7800 feet. On July 2, 2012, Mayor Matthew Lehman announced to an audience of 10 people that the town would be forced to file for Chapter 9. Here's how that happened.</p>
-			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
-		</div>
-		
-		<video width="1920" height="1080" controls="false" data-scrubber="false">
-			<!-- MP4 Version of the video to play on iOS, Chrome and IE -->
-			<source src="videos/Night_Road_Animation.mp4" />
-
-			<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-			<object width="1920" height="1080" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
-				<param name="movie" value="build/flashmediaelement.swf" />
-				<param name="flashvars" value="controls=false&file=videos/intro_animation_placeholder.mp4" />
-
-				<!-- Image as a last resort -->
-				<img src="surfacestill.png" width="100%" height="auto" title="No video playback capabilities" />
-			</object>
-		</video>
-		
-		<embed height="10" width="10" src="music/theme5edit.m4a">
-	 </div><!-- end #opening -->
-  </div><!-- end #container -->
-</body>
-</html>
+</script>

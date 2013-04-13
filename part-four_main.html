@@ -54,22 +54,16 @@
 <script type="text/javascript" charset="utf-8">
 	
 	jQuery(document).ready(function($){
-		
-		centerVideos();
-		
+				
 		//MediaElement player code-------------------
 		$('video').mediaelementplayer({
-      'loop':true,
-      'clickToPlayPause':false,
-      success:function(player, dom, mediaelement){
-        mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';
-				
-				//$('video').animate({'opacity':'1'}, 4000);
-				
-				//play video automatically
-      		    player.play();
-		      }
+			'loop':true,
+			'clickToPlayPause':false,
+			success:function(player, dom, mediaelement){
+				mediaelement.disableControls();
+				player.play();
+				readyToNavigate.videoReady = true;
+			}
 		});
 		
 	//Slide fades in	
@@ -90,7 +84,7 @@
 	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 	   <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
 	       <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-	       <param name="flashvars" value="controls=false&file=" />
+	       <param name="flashvars" value="controls=false&file=videos/Mammoth_Mountain_Animation.mp4" />
 
 	       <!-- Image as a last resort -->
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />

@@ -10,7 +10,7 @@
 	}
 	
 	
-	#part-two_video h1, p{
+	#part-two_video h1, #part-two_video p{
 		position: absolute;
 		color: #FFF;
 	}
@@ -23,31 +23,23 @@
 		font-family: Oswald;
 	}
 	
-	video{
-		
-		opacity: 1;
-	}
 
 </style>
 
 <!-- Scripts that pertain to this section should also be here -->
 <script type="text/javascript" charset="utf-8">
   jQuery(document).ready(function($){
-      
-	centerVideos();
+  
 
 	//MediaElement player code-------------------
 	$('video').mediaelementplayer({
-      'loop':false,
-      'clickToPlayPause':false,
-      success:function(player, dom, mediaelement){
-        mediaelement.container[0].style.position = 'absolute';
-        mediaelement.container[0].style.zIndex = '1';			
-
-		//play video automatically
-        player.play();
-		player.addEventListener('ended', function(){console.log("Finished!")});
-      }
+		'loop':true,
+		'clickToPlayPause':false,
+		success:function(player, dom, mediaelement){
+			mediaelement.enableControls();
+			player.play();
+			readyToNavigate.videoReady = true;
+		}
 	});
 
   });
@@ -62,12 +54,12 @@
     <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
     <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
         <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-        <param name="flashvars" value="controls=false&file=" />
+        <param name="flashvars" value="controls=false&file=videos/Video_1_Cut3.mp4" />
         
         <!-- Image as a last resort -->
         <img src="" width="100%" height="auto" title="No video playback capabilities" />
     </object>
   </video>
-		<h1><a href="part-three_main.html" data-transition="fadeInOut">(Part II Video Slide)</a></h1>
+	<h1><a href="part-three_main.html" data-transition="fadeInOut">(Part II Video Slide)</a></h1>
 	</div>
 </div>
