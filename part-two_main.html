@@ -1,7 +1,5 @@
 <!-- No head or body tags, since this page will be loaded into the main index.html -->
 <style type="text/css" media="screen">
-
-  .mejs-container .mejs-controls { display:block; visibility:visible; }
   
 	#part-two_main{
 		background: #FFF;
@@ -62,9 +60,6 @@
 		$('video').mediaelementplayer({
 			'loop':true,
 			'clickToPlayPause':false,
-			'enableAutosize': true,
-			'videoWidth': '100%',
-			'videoHeight': '100%',
 			success:function(player, dom, mediaelement){
 				mediaelement.disableControls();
 				player.play();
