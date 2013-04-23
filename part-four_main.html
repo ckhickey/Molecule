@@ -50,6 +50,18 @@
 		z-index: 100;
 	}
 	
+	#part-four_main .longtext{
+		opacity: 0;
+	}
+	
+	#part-four_main #description, #part-four_main #description2 {
+		opacity: 0;
+	}
+	
+	#part-four_main #description2{
+		margin-top: -8%;
+	}
+	
 </style>
 <script type="text/javascript" charset="utf-8">
 	
@@ -88,8 +100,9 @@
 
 <div id="part-four_main">
 	<div id="fourmain-text">
-		<h1><a href="part-four_video.html">Part IV: THE RECKONING</a></h1>
-		<p class="text"><span>The decimation of the police department and the emotional polarization of the Town.<br><br>Renewal and regeneration by marketing and growth. Cataclysm and rebirth.Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?<br><br>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
+		<h1 class="longtext"><span>Part IV: THE RECKONING</span></h1>
+		<p id="description"><span>The decimation of the police department and the emotional polarization of the Town.<br><br>Renewal and regeneration by marketing and growth. Cataclysm and rebirth.Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?</span></p>
+		<p id="description2"><span>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
 	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
 	   <source src="videos/Mammoth_Mountain_Animation.mp4" type="video/mp4" />
@@ -104,4 +117,17 @@
 	   </object>
 	 </video>
 	<a href="part-four_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<script>
+	
+	//FADE UP TEXT
+	$("#part-four_main .longtext").animate({'opacity': '1'}, 4000);
+	
+	setTimeout(function(){
+		$('#part-four_main #description').animate({'opacity':'1'}, 1000);
+	}, 3000);
+	clearTimeout(this);
+	setTimeout(function(){
+		$('#part-four_main #description2').animate({'opacity':'1'}, 1000);
+	},6000);
+	</script>
 	</div>
