@@ -12,9 +12,10 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-1.8.3.min.js"><\/script>')</script>
   <script src="js/mediaelement/mediaelement-and-player.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/soundmanager/soundmanager2-jsmin.js"></script>
 
   <script src="js/jgestures.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="js/base.js?v=42" type="text/javascript" charset="utf-8"></script>
+  <script src="js/base.js?v=44" type="text/javascript" charset="utf-8"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Oswald:400,300' rel='stylesheet' type='text/css'>
 	
   <style type="text/css" media="screen">
@@ -142,33 +143,33 @@
 	}
 	
 	#topmenu ul{
-	  margin-left:50px;
+	  	margin-left:50px;
 		font-family: Lato, sans-serif;
-    width:100%;
+    	width:100%;
 		font-weight: 300;
 		font-size: 14px;
 		display:table; /* this mimics the <table> tag */
 	}
 	
 	#topmenu #title{
-	  font-family: Oswald, sans-serif;
+	  	font-family: Oswald, sans-serif;
 		font-weight: 700;
 		font-size: 18px;
 	}
 	
 	#topmenu .part-title{
-	  display:block;
-	  font-family:'Lato', Times, serif;
-	  font-weight: 700;
-	  font-size:0.92em;
-    margin:0 0 5px 0;
+	  	display:block;
+	  	font-family:'Lato', Times, serif;
+	  	font-weight: 700;
+	  	font-size:0.92em;
+    	margin:0 0 5px 0;
 	}
 	
 	#topmenu li{
-	  display:table-cell; /* this allows vertical alignment, and more responsive design */
-	  vertical-align: middle;
-	  padding:10px 5px;
-	  text-align:left;
+	  	display:table-cell; /* this allows vertical alignment, and more responsive design */
+	  	vertical-align: middle;
+	  	padding:10px 5px;
+	  	text-align:left;
 	}
 	
 	#menu-toggle{
@@ -185,7 +186,6 @@
 		position: absolute;
 		top: 6%;
 		z-index: 190;
-		/*background-image: url('icon/mochaGrunge.png');*/
 		display: none;
 		font-family: Lato;
 		font-weight: 300;
@@ -213,6 +213,18 @@
 		})
 	}
 	
+	soundManager.setup({
+	  url: 'js/soundmanager', 
+	  onready: function() {
+		soundManager.createSound({id:'opening', url:'music/thetown0423.m4a'});
+		soundManager.createSound({id:'part2main', url:'music/thetown_2soft.m4a'});
+		soundManager.createSound({id:'part3main', url:'music/town3_0504.m4a'});
+		soundManager.createSound({id:'part4main', url:'mmusic/thetown_4c.m4a'});
+		
+		soundManager.play('opening');
+	  }
+	});
+	
 	jQuery(document).ready(function($){
 				
 		/****** BRING UP CHAPTER MENU AT TOP  ******/
@@ -231,29 +243,49 @@
 			menuVisible = false;
 		});
 		
-		$('video').mediaelementplayer({
-			'loop':true,
-			'clickToPlayPause':false,
-			'enableAutosize': true,
-			success:function(player, dom, mediaelement){
-				mediaelement.disableControls();
-				player.play();
-				readyToNavigate.videoReady = true;
-			}
-		});
+		if (/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)){
+			$('video').mediaelementplayer({
+				'loop':true,
+				'clickToPlayPause':false,
+				'enableAutosize': true,
+				'videoWidth':'100%',
+				'videoHeight': '100%',
+				success:function(player, dom, mediaelement){
+					mediaelement.disableControls();
+					player.play();
+					readyToNavigate.videoReady = true;
+				}
+			});
+			
+		} else {
+			
+			$('video').mediaelementplayer({
+				'loop':true,
+				'clickToPlayPause':false,
+				'enableAutosize': true,
+				success:function(player, dom, mediaelement){
+					mediaelement.disableControls();
+					player.play();
+					readyToNavigate.videoReady = true;
+				}
+			});
+			
+		}
+		
+
 
 	});
 	
 	</script>
 </head>
 <body>
-	<img id="menu-toggle" src="icon/greybutton.png" alt="menu button" class="nav" style="z-index:9999" />
+	<img id="menu-toggle" src="icon/nounmenu.png" alt="menu button" class="nav" style="z-index:9999" />
 	<div id="topmenu">
 		<nav>
 			<ul>
 				<li id="title"><a href="index-repeat.html?" title="Navigate back home">THE TOWN</a></li>
 				<li id="one"><a href="part-one_main.html?" title="Navigate to Before The Fall" data-transition="fadeInOut" data-transitionspeed="2000"><span class="part-title">PART I</span> BEFORE THE FALL</a></li>
-				<li id="two"><a href="part-two_main.html" title="Navigate to The Agreement" data-transition="fadeInOut" data-transitionspeed="2000"><span class="part-title">PART II</span> THE AGREEMENT</a></li>
+				<li id="two"><a href="part-two_main.html" title="Navigate to The Agreement" data-transition="fadeInOut" data-transitionspeed="2000"><span class="part-title">PART II</span> MISTAKES WERE MADE</a></li>
 				<li id="three"><a href="part-three_main.html?" title="Navigate to Dream Going Down" data-transition="fadeInOut" data-transitionspeed="2000"><span class="part-title">PART III</span> DREAM GOING DOWN</a></li>
 				<li id="four"><a href="part-four_main.html" title="Navigate to The Reckoning" data-transition="fadeInOut" data-transitionspeed="2000"><span class="part-title">PART IV</span> THE RECKONING</a></li>
 			</ul>
@@ -267,9 +299,9 @@
 	<div id="opening"> 
 		<div id="opening-text">
 			<h1 class="longtext"><span>THE TOWN</span></h1>
-			<h2 class="longtext"><span>THE BANKRUPTCY OF MAMMOTH LAKES, CALIFORNIA</span></h2>
+			<h2 class="longtext"><span>BANKRUPTCY AT MAMMOTH LAKES</span></h2>
 			<h3 class="text"><span></span></p>
-			<p id="description">On the morning of July 2, 2012, Mammoth Lakes declared bankruptcy. After nearly a dozen years of disputes with a real estate developer, the small town of 8,000 just southeast of Yosemite was left wondering whether it could ever resurrect its fortunes. People questioned whether the dream of becoming a world-class resort was going down.<br><br>But for a dream to die it must first be born. The genesis of Mammoth Lakes started in the early 1940s with a man named Dave McCoy. His story, the story of Mammoth, begins here...
+			<p id="description">In July 2012, Mammoth Lakes declared bankruptcy.<br><br> After nearly a dozen years disputing with a real estate developer, the small town just southeast of Yosemite was left wondering whether it could ever resurrect its fortunes. People questioned whether the dream of becoming a world-class ski resort was vanishing.<br><br>But for a dream to die it must first be born. The genesis of Mammoth Lakes started in the early 1940s with a man named Dave McCoy.<br><br>His story, the story of Mammoth, begins here...
 			</p>
 			<p id="play"><a href="part-one_main.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000">PLAY</a></p>
 		</div>
@@ -288,7 +320,7 @@
 			</object>
 		</video>
 		
-		<embed height="10" width="10" src="music/thetown0423.m4a">
+		<!-- embed height="10" width="10" src="music/thetown0423.m4a" -->
 	 </div><!-- end #opening -->
 	<script>
 		//fadeup text

@@ -13,18 +13,27 @@
 		height: auto;
 		margin-left: -40%;
 		margin-top: 5%;
-		background-color: rgba(255, 255, 255, 0.9);
+		background-color: rgba(255, 255, 255, 0.3);
+		background: -moz-radial-gradient(20% bottom, ellipse farthest-side,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-radial-gradient(20% bottom, ellipse farthest-side,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-radial-gradient(20% bottom, ellipse farthest-side,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+		background: -ms-radial-gradient(20% bottom, ellipse farthest-side,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: radial-gradient(ellipse at 20% bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	
+		
 	}
 	
-	@media only screen and (max-width : 1200px)
+	@media only screen and (max-width : 1250px)
 	{
 		
 		#part-two_main #opening-text{
-			width: 50%;
+			width: 55%;
 		}
 	}
 	
-	@media only screen and (max-width : 800px)
+	@media only screen and (max-width : 900px)
 	{
 		
 		#part-two_main #opening-text{
@@ -44,33 +53,39 @@
 	}
 	
 	#part-two_main p{
-		font-family: Lato;
+		font:normal 0.9em/1.7em Lato, Helvetica, Arial, sans-serif;
 		font-weight: 300;
 		margin: 0 10px 50px 10px;
 	}
 	
-	#part-two_main #swipeicon {
+	#part-two_main #nexticon {
 		position: absolute;
-		margin-top: 90%;
-		margin-left: 45%;
+		top: 101%;
+		left: 50%;
+		z-index: 9999;
+		width: 35px;
+		height: 35px;
 		opacity: 0;
-		z-index: 100;
 	}
 	
 	#part-two_main .longtext{
 		opacity: 0;
 	}
 	
-	#part-two_main #description, #part-two_main #description2, #part-two_main #description3 {
+	#part-two_main #description, #part-two_main #description2, #part-two_main #description3, #part-two_main #description4 {
 		opacity: 0;
 	}
 	
 	#part-two_main #description2{
-		margin-top: -8%;
+		margin-top: -2.5em;
 	}
 	
 	#part-two_main #description3{
-		margin-top: -8%;
+		margin-top: -2.5em;
+	}
+	
+	#part-two_main #description4{
+		margin-top: -2.5em;
 	}
 	
 </style>
@@ -87,13 +102,13 @@
 		});
 		
 		//timed fadeup of icon
-		setTimeout(function(){glowSwipeIcon();}, 10000);
+		setTimeout(function(){glowNextIcon();}, 5000);
 
 		//make swipe icon glow
-		function glowSwipeIcon(){
-			$('#part-two_main #swipeicon').animate({'opacity':'0.3'}, 1000, function(){
-				$('#part-two_main #swipeicon').animate({'opacity':'1.0'}, 1000, function(){
-					glowSwipeIcon();
+		function glowNextIcon(){
+			$('#part-two_main #nexticon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#part-two_main #nexticon').animate({'opacity':'1.0'}, 1000, function(){
+					glowNextIcon();
 				})
 			})
 		}
@@ -103,14 +118,15 @@
 
 <div id="part-two_main">
 	<div id="opening-text">
-		<h1 class="longtext"><span>Part II: UP HOT CREEK</span></h1>
-		<p id="description"><span>Construction had arrived in Mammoth Lakes. Intrawest, a developer notable for shaping a number of North American ski resorts, not only bought a stake in Mammoth Mountain, but also acquired all of the developable real estate owned by the Mountain. They, like the town, wanted to transform Mammoth from a town to a destination.</span></p>
+		<h1 class="longtext"><span>Part II: MISTAKES WERE MADE</span></h1>
+		<p id="description"><span>Sprawling development had arrived in Mammoth Lakes. Intrawest, a developer notable for shaping a number of North American ski resorts, not only bought a stake in Mammoth Mountain, but also acquired all of the available real estate in the area. The developers, like the town, wanted to transform Mammoth from a town to a destination.</span></p>
 		<p id="description2"><span>“Intrawest was firmly entrenched in Mammoth and going forward with its plans,” said Bill Manning, Mammoth Lakes Airport Manager. “A development at any number of levels was on their minds.” <br><br>Intrawest’s most prolific project was “The Village at Mammoth,” a downtown promenade similar in design to its other established resorts. The designs included high-end hotels, gourmet restaurants and clothing boutiques. The plans upended Mammoth’s sleepy, sprawling layout in hopes of ushering in a more tourist-friendly and profitable era.</span></p> 
-		<p id="description3"><span>Mammoth chose development to ensure its financial fortunes. But there was a missing link to the grand design: a destination resort cannot function as a destination without an airport with commercial air service.<br><br>How would the town attract visitors from around the country without a modern airport?</span></p>
+		<p id="description3"><span>Mammoth chose development to ensure its financial fortunes.</span></p>
+		<p id="description4"><span>But there was a missing link to the grand design: a destination resort needed an airport.</span></p>
 		
 	</div>	
 	<video width="100%" height="auto" controls="true" data-scrubber="true" poster="images/001_trans.png">
-		<source src="videos/part_2_animation.mov" type="video/mp4" />
+		<source src="videos/part_2_animation.mp4" type="video/mp4" />
 
 		<!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 		<object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
@@ -121,9 +137,12 @@
 			<img src="" width="100%" height="auto" title="No video playback capabilities" />
 		</object>
 	</video>
-	<embed height="10" width="10" src="music/thetown_2soft.m4a">
-	<a href="part-two_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<!-- embed height="10" width="10" src="music/thetown_2soft.m4a" -->
+
+	<a href="part-two_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
 	<script>
+	
+	soundManager.play('part2main');
 	
 	//FADE UP TEXT
 	$("#part-two_main .longtext").animate({'opacity': '1'}, 4000);
@@ -134,11 +153,14 @@
 	clearTimeout(this);
 	setTimeout(function(){
 		$('#part-two_main #description2').animate({'opacity':'1'}, {duration: 1000, queue: false});
-	},6000);
+	},4000);
 	clearTimeout(this);
 	setTimeout(function(){
 		$('#part-two_main #description3').animate({'opacity':'1'}, {duration: 1000, queue: false});
-	},9000);
-	
+	},5000);
+	clearTimeout(this);
+	setTimeout(function(){
+		$('#part-two_main #description4').animate({'opacity':'1'}, {duration: 1000, queue: false});
+	},7000);
 	</script>
 </div>

@@ -41,7 +41,7 @@ function bindLinksToLoadNewSections(elm){
 function goToNextSection(href, fade, speed){
 	
 	readyToNavigate.videoReady = false;
-	
+	soundManager.stopAll();
 	//This line is where you put the function to fade out any sound file that might be playing
 	jQuery.ajax({url:href,dataType:'html'}).done(
 		function(data){

@@ -9,7 +9,7 @@
 	#fourmain-text{
 		position: absolute;
 		z-index: 100;
-		width: 450px;
+		width: 500px;
 		height: 370px;
 		left: 75%;
 		margin-left: -200px;
@@ -17,9 +17,30 @@
 		margin-top: 5%;
 		/*-webkit-text-stroke: 0.2px #FFF;*/
 		background-color: rgba(179, 198, 231, 0.8);
-		/*text-shadow: 1px 1px white, -1px -1px #444;*/
-		/*text-shadow: 0 0 20px rgba(198,28,39,0.8), 0 0 0 black; 	*/
+		background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+		background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 		
+	}
+	
+	@media only screen and (max-width : 1250px)
+	{
+		
+		#fourmain-text{
+			width: 55%;
+		}
+	}
+	
+	@media only screen and (max-width : 800px)
+	{
+		
+		#fourmain-text{
+			width: 90%;
+		}
 	}
 	
 	#part-four_main h1, #part-four_main a, #part-four_main p{		
@@ -42,24 +63,26 @@
 		
 	}
 	
-	#part-four_main #swipeicon {
+	#part-four_main #nexticon {
 		position: absolute;
-		margin-top: 90%;
-		margin-left: 45%;
+		top: 101%;
+		left: 50%;
+		z-index: 9999;
+		width: 35px;
+		height: 35px;
 		opacity: 0;
-		z-index: 100;
 	}
 	
 	#part-four_main .longtext{
 		opacity: 0;
 	}
 	
-	#part-four_main #description, #part-four_main #description2 {
+	#part-four_main #description, #part-four_main #description2, #part-four_main #description3{
 		opacity: 0;
 	}
 	
-	#part-four_main #description2{
-		margin-top: -8%;
+	#part-four_main #description2, #part-four_main #description3{
+		margin-top: -2.5em;
 	}
 	
 </style>
@@ -85,13 +108,13 @@
   });
 
 		//timed fadeup of icon
-		setTimeout(function(){glowSwipeIcon();}, 10000);
+		setTimeout(function(){glowNextIcon();}, 5000);
 
 		//make swipe icon glow
-		function glowSwipeIcon(){
-			$('#part-four_main #swipeicon').animate({'opacity':'0.3'}, 1000, function(){
-				$('#part-four_main #swipeicon').animate({'opacity':'1.0'}, 1000, function(){
-					glowSwipeIcon();
+		function glowNextIcon(){
+			$('#part-four_main #nexticon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#part-four_main #nexticon').animate({'opacity':'1.0'}, 1000, function(){
+					glowNextIcon();
 				})
 			})
 		}
@@ -101,8 +124,10 @@
 <div id="part-four_main">
 	<div id="fourmain-text">
 		<h1 class="longtext"><span>Part IV: THE RECKONING</span></h1>
-		<p id="description"><span>The decimation of the police department and the emotional polarization of the Town.<br><br>Renewal and regeneration by marketing and growth. Cataclysm and rebirth.Why did Ballas want to do this deal (financial or carving out a piece of the good life?)? How much money do you think Ballas earned from this deal?</span></p>
-		<p id="description2"><span>In negotiations over the Development Agreement, were you closer to Terry Ballas or the Town Council? When did the Town Council abandon Terry Ballas? At what point did Terry Ballas stop negotiating with the Town? When did the town decide to abandon Ballas and side with the FAA? At what point did it become clear that Ballas planned to sue Mammoth Lakes, CA.</span></p>
+		<p id="description"><span>Guilty.</span></p>
+		<p id="description2"><span>A sense of disbelief took over the town after the ruling. Many people blamed the jury, chosen from a rural area outside of Mammoth Lakes, for taking revenge through the court case.
+		<br><br>A piece of land around the airport stood vacant, and now the town owed tens of millions of dollars to settle. But the judgment also took into consideration prospective profits from Ballas' agreement. In 2010, the Court of Appeal of the State of California Third Appellate District affirmed the judgment against the town.</span></p>
+		<p id="description3"><span>It all came to a head in the spring of 2012.</span></p>
 	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
 	   <source src="videos/Mammoth_Mountain_Animation.mp4" type="video/mp4" />
@@ -116,9 +141,10 @@
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
-	<embed height="10" width="10" src="music/thetown_4.m4a">
-	<a href="part-four_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/visswipe.png" width="38" height="113" alt="Noun Project 2928" /></a>
+	<a href="part-four_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
 	<script>
+	
+	soundManager.play('part4main');
 	
 	//FADE UP TEXT
 	$("#part-four_main .longtext").animate({'opacity': '1'}, 4000);
@@ -130,5 +156,9 @@
 	setTimeout(function(){
 		$('#part-four_main #description2').animate({'opacity':'1'}, 1000);
 	},6000);
+	clearTimeout(this);
+	setTimeout(function(){
+		$('#part-four_main #description3').animate({'opacity':'1'}, 1000);
+	},8500);
 	</script>
 	</div>

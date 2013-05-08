@@ -4,62 +4,84 @@
   /** Style here for this slide only **/
 	
 	#part-two_video{
-
 		background: #FFF;
 		opacity: 1;	
 	}
 	
-	
-	#part-two_video h1, #part-two_video p{
+	#part-two-next #nexticon{
 		position: absolute;
-		color: #FFF;
+		top: 101%;
+		left: 50%;
+		z-index: 9999;
+		width: 35px;
+		height: 35px;
+		opacity: 0.9;
 	}
 	
-	#part-two_video h1{
-		top: 50%;
-		left: 30%;
-		font-size: 28px;
-		z-index:10;
-		font-family: Oswald;
-	}
-	
-
 </style>
 
 <!-- Scripts that pertain to this section should also be here -->
 <script type="text/javascript" charset="utf-8">
-  jQuery(document).ready(function($){
-  
 
+	var iconvisible = true;
+	var timeoutHandle;
+		
 	//MediaElement player code-------------------
 	$('video').mediaelementplayer({
-		'loop':true,
+		'loop':false,
 		'clickToPlayPause':false,
 		success:function(player, dom, mediaelement){
-			mediaelement.enableControls();
-			player.play();
+			
 			readyToNavigate.videoReady = true;
+			mediaelement.enableControls();
+			
+			//copy this to any section where you need it to automatically navigate to next section after video is done
+			player.addEventListener('ended', function(){
+				jQuery('#container').stop().animate({'opacity': 0}, 500, function(){
+					goToNextSection('part-three_main.html', 'fadeInOut', 2000);
+				});
+			}, false);
+			
+			
+			player.play();
 		}
 	});
-
-  });
+	
 </script>
-
 <!-- This is your slide -->
 <div id="part-two_video">
-	
-  <video width="100%" height="auto" controls="false" poster="images/001_trans.png">
-    <source src="videos/Video_1_Cut3.mp4" type="video/mp4" />
-    
-    <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
-    <object width="100%" height="auto" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
-        <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
-        <param name="flashvars" value="controls=false&file=videos/Video_1_Cut3.mp4" />
-        
-        <!-- Image as a last resort -->
-        <img src="" width="100%" height="auto" title="No video playback capabilities" />
-    </object>
-  </video>
-	<h1><a href="part-three_main.html" data-transition="fadeInOut">(Part II Video Slide)</a></h1>
+	<div id="part-two-next">
+		<a href="part-three_main.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
 	</div>
+	<video width="1920" height="1080" style="width:100%; height:100%;" controls="true" data-scrubber="true" poster="images/001_trans.png">
+	  <source src="videos/Video_2_Cut11_Atavist.mp4" type="video/mp4" />
+
+	  <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
+	  <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">
+	      <param name="movie" value="js/mediaelement/flashmediaelement.swf" />
+	      <param name="flashvars" value="controls=false&file=videos/Video_2_Cut11_Atavist.mp4" />
+
+	      <!-- Image as a last resort -->
+	      <img src="" width="100%" height="auto" title="No video playback capabilities" />
+	  </object>
+	</video>
+	<script>
+	setTimeout(function(){
+		$('#part-two-next #nexticon').animate({'opacity':'0'}, {duration: 5000, queue: false});
+		//Below means that icon is no longer visible, and all of the properties that go along with it being visible no longer apply.
+		iconvisible = false;
+	}, 1000);
+	
+	$(window).on('mousemove', function(){
+		if(iconvisible == false){
+			iconvisible = true;
+			window.clearTimeout(timeoutHandle);
+			$('#part-two-next #nexticon').stop().animate({'opacity':'1'}, {duration: 1200, queue: false});
+			timeoutHandle = setTimeout(function(){
+				$('#part-two-next #nexticon').stop().animate({'opacity':'0'}, {duration: 1000, queue: false});
+				iconvisible = false;
+			}, 2000);
+		}
+	});
+	</script>
 </div>

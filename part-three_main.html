@@ -15,6 +15,22 @@
 		margin-top: 5%;
 	}
 	
+	@media only screen and (max-width : 1200px)
+	{
+		
+		#part-three_main #opening-text{
+			width: 50%;
+		}
+	}
+	
+	@media only screen and (max-width : 800px)
+	{
+		
+		#part-three_main #opening-text{
+			width: 90%;
+		}
+	}
+	
 	#part-three_main h1, #part-three_main a, #part-three_main p{
 		color: #000;
 	}
@@ -26,30 +42,36 @@
 	}
 	
 	#part-three_main p{
-		font-family: Lato;
+		font:normal 0.9em/1.7em Lato, Helvetica, Arial, sans-serif;
 		text-align: justify;
 		font-weight: 300;
 		margin: 0 10px 50px 10px;
 	}
 	
-	#part-three_main #swipeicon {
+	#part-three_main #nexticon {
 		position: absolute;
-		bottom: 10px;
+		top: 101%;
+		left: 50%;
+		z-index: 9999;
+		width: 35px;
+		height: 35px;
 		opacity: 0;
-		z-index: 100;
-		margin-left: 45%;
 	}
 	
 	#part-three_main .longtext{
 		opacity: 0;
 	}
 	
-	#part-three_main #description, #part-three_main #description2 {
+	#part-three_main #description, #part-three_main #description2, #part-three_main #description3 {
 		opacity: 0;
 	}
 	
 	#part-three_main #description2{
-		margin-top: -8%;
+		margin-top: -2.5em;
+	}
+	
+	#part-three_main #description3{
+		margin-top: -2.5em;
 	}
 	
 </style>
@@ -72,13 +94,13 @@
 	//$('#part-three_main').animate({'opacity':'1'}, 2000);	
 	
 	//timed fadeup of icon
-	setTimeout(function(){glowSwipeIcon();}, 10000);
+	setTimeout(function(){glowNextIcon();}, 5000);
 	
 	//make swipe icon glow
-	function glowSwipeIcon(){
-		$('#part-three_main #swipeicon').animate({'opacity':'0.3'}, 1000, function(){
-			$('#part-three_main #swipeicon').animate({'opacity':'1.0'}, 1000, function(){
-				glowSwipeIcon();
+	function glowNextIcon(){
+		$('#part-three_main #nexticon').animate({'opacity':'0.3'}, 1000, function(){
+			$('#part-three_main #nexticon').animate({'opacity':'1.0'}, 1000, function(){
+				glowNextIcon();
 			})
 		})
 	}
@@ -90,13 +112,13 @@
 <div id="part-three_main">
 	<div id="opening-text">
 		<h1 class="longtext"><span>Part III: THE DREAM IS GOING DOWN</span></h1>
-		<p id="description"><span>Despite its problems, in December 2000 the FAA adopted the town’s Final Environmental Assessment (FEA) to expand the airport. It seemed to safeguard against any mistakes made by the Town and Ballas while drafting their development agreement. 
-		<br><br>But not everyone adored the FAA’s decision. Conservationist organizations and California state agencies grew concerned. An expanded airport meant potentially tens of thousands more visitors to the Eastern Sierras with an unknown impact on the environment. 
-		<br><br>According to Manning, the groups were simply anti-development of any ilk. “They felt that if they could stop the airport that would stop growth in town,” he said.
+		<p id="description"><span>In December 2000 the FAA approved the airport project. To the Town, this blessing seemed to safeguard against any mistakes made while drafting the development agreement.</span></p> 
+		<p id="description2"><span>But not everyone adored the FAA’s decision. Conservationist organizations grew concerned. An expanded airport meant potentially tens of thousands more visitors to the Eastern Sierras, which would leave an unknown tread on the delicate environment. 
+		<br><br>In Manning's opinion, these groups were simply anti-development. “They felt that if they could stop the airport that would stop growth in town,” he said.
+		<br><br>The state of California and conservationist organizations sued the US Department of Transportation, including the FAA, for approving the project. They argued the Town never fully considered what doubling their population would do to the environment. 
+		<br><br>The judge agreed. He ruled that Mammoth was prohibited “from commencing any construction or other work on the airport expansion project.” That is, unless they complied with all regulations.
 		</span></p>
-		<p id="description2"><span>The state of California and conservationist organizations sued the US Department of Transportation, including the FAA, for approving the project. An Environmental Impact Statement had never been executed and, the suit argued, the Town’s airport expansion never fully considered what doubling the population would do to the environment. 
-		<br><br>The judge ruled that the Town is prohibited “from commencing any construction or other work on the airport expansion project pending conformance with all NEPA requirements, including completion and adoption of an Environmental Impact Statement.” 
-		<br><br>The Town would have to start the environmental process over. Old problems would soon reemerge.
+		<p id="description3"><span>This meant the Town would have to start the process over. Old problems would soon reemerge.
 		</span></p>
 	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
@@ -111,9 +133,10 @@
 	       <img src="" width="100%" height="auto" title="No video playback capabilities" />
 	   </object>
 	 </video>
-	<embed height="10" width="10" src="music/theme1two.aif">
-	<a href="part-three_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="part-three_video.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
 	<script>
+	
+	soundManager.play('part3main');
 	
 	//FADE UP TEXT
 	$("#part-three_main .longtext").animate({'opacity': '1'}, 4000);
@@ -124,6 +147,10 @@
 	clearTimeout(this);
 	setTimeout(function(){
 		$('#part-three_main #description2').animate({'opacity':'1'}, 1000);
-	},6000);
+	},8900);
+	clearTimeout(this);
+	setTimeout(function(){
+		$('#part-three_main #description3').animate({'opacity':'1'}, 1000);
+	},15200);
 	</script>
 </div>
