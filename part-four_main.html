@@ -6,32 +6,42 @@
 		opacity: 1;
 	}
 	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-four_main {
+			margin-top: -75%;
+		}
+	}
+	
 	#fourmain-text{
 		position: absolute;
 		z-index: 100;
 		width: 500px;
-		height: 370px;
+		height: auto;
 		left: 75%;
 		margin-left: -200px;
 		top: 30%;
 		margin-top: 5%;
 		/*-webkit-text-stroke: 0.2px #FFF;*/
-		background-color: rgba(179, 198, 231, 0.8);
-		background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-		background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 12+ */
-		background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
-		background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-		
+		background-color: rgba(179,198,231, 0.8);
+		/*box-shadow: 0px 1px 10px #B3C6E7;*/
+		background: -moz-linear-gradient(top, rgba(179,198,231,0) 0%, rgba(179,198,231,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(179,198,231,0)), color-stop(100%,rgba(179,198,231,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(179,198,231,0) 0%,rgba(179,198,231,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(179,198,231,0) 0%,rgba(179,198,231,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(179,198,231,0) 0%,rgba(179,198,231,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(179,198,231,0) 0%,rgba(179,198,231,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+	
 	}
 	
 	@media only screen and (max-width : 1250px)
 	{
 		
 		#fourmain-text{
-			width: 55%;
+			width: 60%;
+			left: 55%;
 		}
 	}
 	
@@ -40,8 +50,23 @@
 		
 		#fourmain-text{
 			width: 90%;
+			left: 30%;
 		}
 	}
+	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#fourmain-text{
+			width: 90%;
+			left: 60%;
+			top: 95%;
+			height: auto;
+			background: none;
+		}
+	
+	}
+	
 	
 	#part-four_main h1, #part-four_main a, #part-four_main p{		
 		color: #000;	
@@ -54,13 +79,34 @@
 		/*text-shadow: 1px 1px #FFF;*/
 	}
 	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-four_main h1, #part-four_main a {
+			font-size: 20px;
+			font-family: Oswald;
+			margin-left: 5px;
+			color: #FFF;
+		}
+	
+	}
+	
 	#part-four_main p{	
-		font:normal 0.9em/1.7em Lato, Helvetica, Arial, sans-serif;
+		font:normal 0.9em/1.4em Lato, Helvetica, Arial, sans-serif;
 		text-align: justify;
 		font-weight: 300;
 		margin: 0 10px 50px 10px;
 		/*text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.75);*/
 		
+	}
+	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-four_main p {
+			color: #FFF;
+		}
+	
 	}
 	
 	#part-four_main #nexticon {
@@ -71,6 +117,14 @@
 		width: 35px;
 		height: 35px;
 		opacity: 0;
+	}
+	
+	@media only screen and (min-width : 1024px)
+	{
+		
+		#part-four_main #nexticon{
+			top: 95%;
+		}
 	}
 	
 	#part-four_main .longtext{
@@ -124,10 +178,11 @@
 <div id="part-four_main">
 	<div id="fourmain-text">
 		<h1 class="longtext"><span>Part IV: THE RECKONING</span></h1>
-		<p id="description"><span>Guilty.</span></p>
-		<p id="description2"><span>A sense of disbelief took over the town after the ruling. Many people blamed the jury, chosen from a rural area outside of Mammoth Lakes, for taking revenge through the court case.
-		<br><br>A piece of land around the airport stood vacant, and now the town owed tens of millions of dollars to settle. But the judgment also took into consideration prospective profits from Ballas' agreement. In 2010, the Court of Appeal of the State of California Third Appellate District affirmed the judgment against the town.</span></p>
-		<p id="description3"><span>It all came to a head in the spring of 2012.</span></p>
+		<p id="description"><span>The verdict struck the nerves of residents. Some felt the jury, culled from outside of Mammoth Lakes, sought to punish the posh ski town with its verdict. Others blamed the Town’s legal defense team for not calling the proper witnesses.</span></p>
+		<p id="description2"><span>The Town appealed the decision to the California Court of Appeal. In June of 2010, the court affirmed the verdict.	
+		<br><br>The Town pushed all the way to California’s Supreme Court. In March 2011, the Town was told its appeal was denied. More troubling, interest had been accruing on the Town’s judgment, and now exceeded $42 million.
+		<br><br>The Town and Ballas made unsuccessful attempts to negotiate a settlement, while each side pointed fingers at the other.</span></p>
+		<p id="description3"><span>By the summer of 2012, the Town Council had run out of options.</span></p>
 	</div>	
 	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
 	   <source src="videos/Mammoth_Mountain_Animation.mp4" type="video/mp4" />

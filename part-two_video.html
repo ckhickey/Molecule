@@ -18,12 +18,22 @@
 		opacity: 0.9;
 	}
 	
+	@media only screen and (min-width : 1024px)
+	{
+		
+		#part-two-next #nexticon{
+			top: 95%;
+		}
+	}
+	
+	video{
+		opacity: 1;
+	}
 </style>
 
 <!-- Scripts that pertain to this section should also be here -->
 <script type="text/javascript" charset="utf-8">
 
-	var iconvisible = true;
 	var timeoutHandle;
 		
 	//MediaElement player code-------------------
@@ -53,8 +63,8 @@
 	<div id="part-two-next">
 		<a href="part-three_main.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
 	</div>
-	<video width="1920" height="1080" style="width:100%; height:100%;" controls="true" data-scrubber="true" poster="images/001_trans.png">
-	  <source src="videos/Video_2_Cut11_Atavist.mp4" type="video/mp4" />
+	<video width="1920" height="1080" style="width:100%; height:100%;" controls="true" data-scrubber="true" poster="">
+	  <source src="videos/Video_2_Cut15_05102013.mp4" type="video/mp4" />
 
 	  <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->
 	  <object width="1920" height="1080" type="application/x-shockwave-flash" data="js/mediaelement/flashmediaelement.swf">

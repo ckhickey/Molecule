@@ -6,6 +6,14 @@
 		opacity: 1;
 	}
 	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-three_main {
+			margin-top: -75%;
+		}
+	}
+	
 	#part-three_main #opening-text{
 		position: absolute;
 		z-index: 100;
@@ -13,9 +21,21 @@
 		left: 25%;
 		margin-left: -200px;
 		margin-top: 5%;
+		
 	}
 	
-	@media only screen and (max-width : 1200px)
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-three_main #opening-text{
+			width: 90%;
+			height: auto;
+			left: 65%;
+			top: 95%;
+		}
+	}
+	
+	@media only screen and (max-width : 1250px)
 	{
 		
 		#part-three_main #opening-text{
@@ -31,6 +51,8 @@
 		}
 	}
 	
+	
+	
 	#part-three_main h1, #part-three_main a, #part-three_main p{
 		color: #000;
 	}
@@ -41,11 +63,32 @@
 		margin-left: 5px;
 	}
 	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-three_main h1, #part-three_main a {
+			font-size: 20px;
+			font-family: Oswald;
+			margin-left: 5px;
+			color: #FFF;
+		}
+	
+	}
+	
 	#part-three_main p{
-		font:normal 0.9em/1.7em Lato, Helvetica, Arial, sans-serif;
+		font:normal 0.9em/1.0em Lato, Helvetica, Arial, sans-serif;
 		text-align: justify;
 		font-weight: 300;
 		margin: 0 10px 50px 10px;
+	}
+	
+	@media only screen and (max-width : 400px)
+	{
+		
+		#part-three_main p {
+			color: #fff;
+		}
+	
 	}
 	
 	#part-three_main #nexticon {
@@ -56,6 +99,14 @@
 		width: 35px;
 		height: 35px;
 		opacity: 0;
+	}
+	
+	@media only screen and (min-width : 1024px)
+	{
+		
+		#part-three_main #nexticon{
+			top: 95%;
+		}
 	}
 	
 	#part-three_main .longtext{
@@ -112,16 +163,19 @@
 <div id="part-three_main">
 	<div id="opening-text">
 		<h1 class="longtext"><span>Part III: THE DREAM IS GOING DOWN</span></h1>
-		<p id="description"><span>In December 2000 the FAA approved the airport project. To the Town, this blessing seemed to safeguard against any mistakes made while drafting the development agreement.</span></p> 
-		<p id="description2"><span>But not everyone adored the FAA’s decision. Conservationist organizations grew concerned. An expanded airport meant potentially tens of thousands more visitors to the Eastern Sierras, which would leave an unknown tread on the delicate environment. 
-		<br><br>In Manning's opinion, these groups were simply anti-development. “They felt that if they could stop the airport that would stop growth in town,” he said.
-		<br><br>The state of California and conservationist organizations sued the US Department of Transportation, including the FAA, for approving the project. They argued the Town never fully considered what doubling their population would do to the environment. 
-		<br><br>The judge agreed. He ruled that Mammoth was prohibited “from commencing any construction or other work on the airport expansion project.” That is, unless they complied with all regulations.
+		<p id="description"><span>In December 2000, the Federal Aviation Administration approved the airport layout plan. To the Town, this seemed to absolve any mistakes made while drafting the development agreement.
+		</span></p> 
+		<p id="description2"><span>But not everyone liked the FAA’s decision. Conservationists grew concerned. An expanded airport meant potentially tens of thousands of visitors to the Eastern Sierra, which would leave an unknown tread on the environment.
+		<br><br>Manning, the airport manager, claimed these groups were simply anti-development, regardless of the project. “They felt that if they could stop the airport that would stop growth in town,” he said.
+		<br><br>These conservationist organizations, along with the state of California, sued the US Department of Transportation — including the FAA — for approving the project. They argued the environmental impact on the Town was never fully considered.
+		<br><br>The judge sided with the state and conservationists. He blocked the plan, saying it would move forward only if the airport performed an additional environmental examination.
+		<br><br>Terry Ballas, the developer of the hotel/condo project to be built in the airport, transferred the rights to a new company called Mammoth Lakes Land Acquisition (MLLA). The hotel project, known as “Hot Creek,” would likely play a major role in this environmental assessment the judge ordered.
 		</span></p>
-		<p id="description3"><span>This meant the Town would have to start the process over. Old problems would soon reemerge.
+		<p id="description3"><span>While this was happening, the town manager was fired and a new interim town manager came to town.
+		<br><br>His name was Charlie Long.	
 		</span></p>
 	</div>	
-	<video width="100%" height="auto" controls="false" poster="images/001_trans.png">
+	<video width="100%" height="auto" controls="false" poster="">
 	   <source src="videos/part_3_animation.mp4" type="video/mp4" />
 
 	   <!-- Flash fallback for non-HTML5 browsers without JavaScript, and FireFox -->

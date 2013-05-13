@@ -2,22 +2,21 @@
 <style type="text/css" media="screen">
   
 	#epilogue{
-		background-image:url('epilogue_a1.png');
-		background: #FFF;
+		background-color: #000;
 		opacity: 1;
 	}
 	
 	#epilogue-text{
 		position: absolute;
 		z-index: 100;
-		width: 400px;
+		width: 70%;
 		left: 20%;
-		margin-left: ;
 		margin-top: 2%;
+		
 	}
 	
 	#epilogue h1, p {
-		color: #000;
+		color: #FFF5CC;
 	}
 	
 	#epilogue h1{
@@ -29,16 +28,16 @@
 		font-weight: 300;
 	}
 	
-	#epilogue a{
-		color: #5d4c18;
-	}
-	
-	#swipeicon {
+	#epilogue #nexticon {
 		position: absolute;
-		top: 90%;
-		left: 45%;
+		top: 101%;
+		left: 50%;
+		z-index: 9999;
+		width: 35px;
+		height: 35px;
 		opacity: 0;
 	}
+	
 	
 </style>
 <script type="text/javascript" charset="utf-8">
@@ -46,21 +45,17 @@
 	jQuery(document).ready(function($){
 		
 		
-		//timed fadeup of text
-		setTimeout(function(){glowSwipeIcon();}, 5000);
-		
+		//timed fadeup of icon
+		setTimeout(function(){glowNextIcon();}, 5000);
+
 		//make swipe icon glow
-		function glowSwipeIcon(){
-			$('#swipeicon').animate({'opacity':'0.3'}, 1000, function(){
-				$('#swipeicon').animate({'opacity':'1.0'}, 1000, function(){
-					glowSwipeIcon();
+		function glowNextIcon(){
+			$('#epilogue #nexticon').animate({'opacity':'0.3'}, 1000, function(){
+				$('#epilogue #nexticon').animate({'opacity':'1.0'}, 1000, function(){
+					glowNextIcon();
 				})
 			})
 		}
-		
-	//slide fades in	
-
-	$('#epilogue').animate({'opacity':'1'}, 2000); 
 
 });
 	
@@ -68,9 +63,48 @@
 
 <div id="epilogue">
 	<div id="epilogue-text">
-		<h1 class="subtext"><span>EPILOGUE</span></h1>
-		<p>Credits go here. This image likely won't be here.</p>
+		<h1 class="longtext"><span>CREDITS</span></h1>
+		<p id="description"><span><strong>C.K. Hickey and Matt Sarnecki</strong> are graduate students at UC Berkeley's Graduate School of Journalism with specialties in multimedia journalism.<br><br><strong>Matt Sarnecki</strong> led the reporting and video production.<br><br><strong>C.K. Hickey</strong> led the design and web development.</p></span>
+		</div>
+		<div id="description2">
+		<span><h1 class="subtext">PART I: BEFORE THE FALL</h1>
+		<p>Special thanks to Brandon Russell
+		<br><br>Additional footage provided by The Dave McCoy Collection
+		<br><br>Music provided by: x</p></span>
+		</div>
+		<div id="description3">
+		<span><h1 class="subtext">PART II: MISTAKES WERE MADE</h1>
+		<p>Music provided by: x and C.K. Hickey</p></span>
+		</div>
+		<div id="description4">
+		<span><h1 class="subtext">PART III: THE DREAM IS GOING DOWN</h1>
+		<p>Music provided by: x</p></span>
+		</div>
+		<div id="description5">
+		<span><h1 class="subtext">PART IV: THE RECKONING</h1>
+		<p>Special thanks to Brandon Russell
+		<br><br>Additional footage provided by The Dave McCoy Collection
+		<br><br>Music provided by: x</p></span>
+		</div>	
 	</div>	
-	<img src="images/epilogue_a1.png" width="100%" height="auto" title="No video playback capabilities" />
-	<a href="index_CK.html" class="linkone" data-transition="fadeInOut" data-transitionspeed="4000"><img id="swipeicon" src="icon/noun_project_2928.png" width="101" height="33" alt="Noun Project 2928" /></a>
+	<a href="index-repeat.html" data-transition="fadeInOut" data-transitionspeed="2000"><img id="nexticon" src="icon/next.png" alt="Noun Project 5299" /></a>	
+	<script>
+	
+	//soundManager.play('');
+	
+	//FADE UP TEXT
+	//$("#epilogue .longtext").animate({'opacity': '1'}, 4000);
+	
+	//setTimeout(function(){
+		//$('#epilogue #description').animate({'opacity':'1'}, 1000);
+	//}, 3000);
+	//clearTimeout(this);
+	//setTimeout(function(){
+	//	$('#epilogue #description2').animate({'opacity':'1'}, 1000);
+	//},8900);
+	//clearTimeout(this);
+	//setTimeout(function(){
+	//	$('#epilogue #description3').animate({'opacity':'1'}, 1000);
+	//},15200);
+	</script>
 </div>
